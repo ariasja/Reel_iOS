@@ -1,0 +1,818 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B6E16168B7B1493E94A3AEB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ADD22AC2BB340DEBE5E2426 /* libPods.a */; };
+		D001F43E1981EAFE004611E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F43D1981EAFE004611E6 /* Foundation.framework */; };
+		D001F4401981EAFE004611E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F43F1981EAFE004611E6 /* CoreGraphics.framework */; };
+		D001F4421981EAFE004611E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F4411981EAFE004611E6 /* UIKit.framework */; };
+		D001F4441981EAFE004611E6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F4431981EAFE004611E6 /* CoreData.framework */; };
+		D001F44A1981EAFE004611E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D001F4481981EAFE004611E6 /* InfoPlist.strings */; };
+		D001F44C1981EAFE004611E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D001F44B1981EAFE004611E6 /* main.m */; };
+		D001F4501981EAFE004611E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D001F44F1981EAFE004611E6 /* AppDelegate.m */; };
+		D001F4531981EAFE004611E6 /* Reel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D001F4511981EAFE004611E6 /* Reel.xcdatamodeld */; };
+		D001F4551981EAFE004611E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D001F4541981EAFE004611E6 /* Images.xcassets */; };
+		D001F45C1981EAFE004611E6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F45B1981EAFE004611E6 /* XCTest.framework */; };
+		D001F45D1981EAFE004611E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F43D1981EAFE004611E6 /* Foundation.framework */; };
+		D001F45E1981EAFE004611E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F4411981EAFE004611E6 /* UIKit.framework */; };
+		D001F45F1981EAFE004611E6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F4431981EAFE004611E6 /* CoreData.framework */; };
+		D001F4671981EAFE004611E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D001F4651981EAFE004611E6 /* InfoPlist.strings */; };
+		D001F4691981EAFE004611E6 /* ReelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D001F4681981EAFE004611E6 /* ReelTests.m */; };
+		D01AA9C11987E86C009590A1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01AA9C01987E86C009590A1 /* MapKit.framework */; };
+		D01AA9C41987E912009590A1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C31987E912009590A1 /* MapViewController.m */; };
+		D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C6198C7304009590A1 /* AddPostViewController.m */; };
+		D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */; };
+		D0BE98211991D430000A133C /* AddPostConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98201991D430000A133C /* AddPostConfirmationViewController.m */; };
+		D0BE982819947550000A133C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BE982719947550000A133C /* Main.storyboard */; };
+		D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE982A19A13CEF000A133C /* FeedViewController.m */; };
+		D0BE982E19A51CE0000A133C /* ReelRailsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE982D19A51CE0000A133C /* ReelRailsClient.m */; };
+		D0BE983119A52679000A133C /* ReelRailsAFNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE983019A52679000A133C /* ReelRailsAFNClient.m */; };
+		D0BE983619A52CB9000A133C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE983519A52CB9000A133C /* User.m */; };
+		D0BE983919A52E8C000A133C /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE983819A52E8C000A133C /* UserSession.m */; };
+		D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE983B19A689CF000A133C /* ReelTabBarController.m */; };
+		D0BE984019A69ED8000A133C /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE983F19A69ED8000A133C /* map_pin.png */; };
+		D0BE984319AAFA67000A133C /* UserSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE984219AAFA67000A133C /* UserSignupViewController.m */; };
+		E487CA1B72414492B0C98DD5 /* libPods-ReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D001F4601981EAFE004611E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D001F4321981EAFD004611E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D001F4391981EAFD004611E6;
+			remoteInfo = Reel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		107C909932B54EFC8CEDEFE9 /* Pods-ReelTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReelTests.xcconfig"; path = "Pods/Pods-ReelTests.xcconfig"; sourceTree = "<group>"; };
+		1ADD22AC2BB340DEBE5E2426 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4D0D2797E7D45A78BB64F59 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D001F43A1981EAFE004611E6 /* Reel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D001F43D1981EAFE004611E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D001F43F1981EAFE004611E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D001F4411981EAFE004611E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D001F4431981EAFE004611E6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D001F4471981EAFE004611E6 /* Reel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Reel-Info.plist"; sourceTree = "<group>"; };
+		D001F4491981EAFE004611E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D001F44B1981EAFE004611E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D001F44D1981EAFE004611E6 /* Reel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reel-Prefix.pch"; sourceTree = "<group>"; };
+		D001F44E1981EAFE004611E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D001F44F1981EAFE004611E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D001F4521981EAFE004611E6 /* Reel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reel.xcdatamodel; sourceTree = "<group>"; };
+		D001F4541981EAFE004611E6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D001F45A1981EAFE004611E6 /* ReelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D001F45B1981EAFE004611E6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D001F4641981EAFE004611E6 /* ReelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReelTests-Info.plist"; sourceTree = "<group>"; };
+		D001F4661981EAFE004611E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D001F4681981EAFE004611E6 /* ReelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReelTests.m; sourceTree = "<group>"; };
+		D01AA9C01987E86C009590A1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D01AA9C21987E912009590A1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; wrapsLines = 1; };
+		D01AA9C31987E912009590A1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D01AA9C5198C7304009590A1 /* AddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostViewController.h; sourceTree = "<group>"; };
+		D01AA9C6198C7304009590A1 /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
+		D0BE981C1990A2A2000A133C /* UIColor+ColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorExtensions.h"; sourceTree = "<group>"; };
+		D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorExtensions.m"; sourceTree = "<group>"; };
+		D0BE981F1991D430000A133C /* AddPostConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostConfirmationViewController.h; sourceTree = "<group>"; };
+		D0BE98201991D430000A133C /* AddPostConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostConfirmationViewController.m; sourceTree = "<group>"; };
+		D0BE982719947550000A133C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D0BE982919A13CEF000A133C /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		D0BE982A19A13CEF000A133C /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		D0BE982C19A51CE0000A133C /* ReelRailsClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReelRailsClient.h; sourceTree = "<group>"; };
+		D0BE982D19A51CE0000A133C /* ReelRailsClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReelRailsClient.m; sourceTree = "<group>"; };
+		D0BE982F19A52679000A133C /* ReelRailsAFNClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReelRailsAFNClient.h; sourceTree = "<group>"; };
+		D0BE983019A52679000A133C /* ReelRailsAFNClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReelRailsAFNClient.m; sourceTree = "<group>"; };
+		D0BE983419A52CB9000A133C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D0BE983519A52CB9000A133C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D0BE983719A52E8C000A133C /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
+		D0BE983819A52E8C000A133C /* UserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
+		D0BE983A19A689CF000A133C /* ReelTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReelTabBarController.h; sourceTree = "<group>"; };
+		D0BE983B19A689CF000A133C /* ReelTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReelTabBarController.m; sourceTree = "<group>"; };
+		D0BE983F19A69ED8000A133C /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_pin.png; path = ../../../map_pin.png; sourceTree = "<group>"; };
+		D0BE984119AAFA67000A133C /* UserSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignupViewController.h; sourceTree = "<group>"; };
+		D0BE984219AAFA67000A133C /* UserSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignupViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D001F4371981EAFD004611E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D01AA9C11987E86C009590A1 /* MapKit.framework in Frameworks */,
+				D001F4401981EAFE004611E6 /* CoreGraphics.framework in Frameworks */,
+				D001F4441981EAFE004611E6 /* CoreData.framework in Frameworks */,
+				D001F4421981EAFE004611E6 /* UIKit.framework in Frameworks */,
+				D001F43E1981EAFE004611E6 /* Foundation.framework in Frameworks */,
+				B6E16168B7B1493E94A3AEB6 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D001F4571981EAFE004611E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D001F45C1981EAFE004611E6 /* XCTest.framework in Frameworks */,
+				D001F45F1981EAFE004611E6 /* CoreData.framework in Frameworks */,
+				D001F45E1981EAFE004611E6 /* UIKit.framework in Frameworks */,
+				D001F45D1981EAFE004611E6 /* Foundation.framework in Frameworks */,
+				E487CA1B72414492B0C98DD5 /* libPods-ReelTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D001F4311981EAFD004611E6 = {
+			isa = PBXGroup;
+			children = (
+				D0BE983F19A69ED8000A133C /* map_pin.png */,
+				D001F4451981EAFE004611E6 /* Reel */,
+				D001F4621981EAFE004611E6 /* ReelTests */,
+				D001F43C1981EAFE004611E6 /* Frameworks */,
+				D001F43B1981EAFE004611E6 /* Products */,
+				C4D0D2797E7D45A78BB64F59 /* Pods.xcconfig */,
+				107C909932B54EFC8CEDEFE9 /* Pods-ReelTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+			tabWidth = 2;
+		};
+		D001F43B1981EAFE004611E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D001F43A1981EAFE004611E6 /* Reel.app */,
+				D001F45A1981EAFE004611E6 /* ReelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D001F43C1981EAFE004611E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D01AA9C01987E86C009590A1 /* MapKit.framework */,
+				D001F43D1981EAFE004611E6 /* Foundation.framework */,
+				D001F43F1981EAFE004611E6 /* CoreGraphics.framework */,
+				D001F4411981EAFE004611E6 /* UIKit.framework */,
+				D001F4431981EAFE004611E6 /* CoreData.framework */,
+				D001F45B1981EAFE004611E6 /* XCTest.framework */,
+				1ADD22AC2BB340DEBE5E2426 /* libPods.a */,
+				6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D001F4451981EAFE004611E6 /* Reel */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE982719947550000A133C /* Main.storyboard */,
+				D001F4541981EAFE004611E6 /* Images.xcassets */,
+				D001F4511981EAFE004611E6 /* Reel.xcdatamodeld */,
+				D0BE983319A527A3000A133C /* ViewControllers */,
+				D0BE983219A5278A000A133C /* Clients */,
+				D001F4461981EAFE004611E6 /* Supporting Files */,
+				D0BE983419A52CB9000A133C /* User.h */,
+				D0BE983519A52CB9000A133C /* User.m */,
+				D0BE983719A52E8C000A133C /* UserSession.h */,
+				D0BE983819A52E8C000A133C /* UserSession.m */,
+			);
+			path = Reel;
+			sourceTree = "<group>";
+		};
+		D001F4461981EAFE004611E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D001F44E1981EAFE004611E6 /* AppDelegate.h */,
+				D001F44F1981EAFE004611E6 /* AppDelegate.m */,
+				D0BE981C1990A2A2000A133C /* UIColor+ColorExtensions.h */,
+				D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */,
+				D001F4471981EAFE004611E6 /* Reel-Info.plist */,
+				D001F4481981EAFE004611E6 /* InfoPlist.strings */,
+				D001F44B1981EAFE004611E6 /* main.m */,
+				D001F44D1981EAFE004611E6 /* Reel-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D001F4621981EAFE004611E6 /* ReelTests */ = {
+			isa = PBXGroup;
+			children = (
+				D001F4681981EAFE004611E6 /* ReelTests.m */,
+				D001F4631981EAFE004611E6 /* Supporting Files */,
+			);
+			path = ReelTests;
+			sourceTree = "<group>";
+		};
+		D001F4631981EAFE004611E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D001F4641981EAFE004611E6 /* ReelTests-Info.plist */,
+				D001F4651981EAFE004611E6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0BE983219A5278A000A133C /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE982C19A51CE0000A133C /* ReelRailsClient.h */,
+				D0BE982D19A51CE0000A133C /* ReelRailsClient.m */,
+				D0BE982F19A52679000A133C /* ReelRailsAFNClient.h */,
+				D0BE983019A52679000A133C /* ReelRailsAFNClient.m */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		D0BE983319A527A3000A133C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D01AA9C5198C7304009590A1 /* AddPostViewController.h */,
+				D01AA9C6198C7304009590A1 /* AddPostViewController.m */,
+				D0BE981F1991D430000A133C /* AddPostConfirmationViewController.h */,
+				D0BE98201991D430000A133C /* AddPostConfirmationViewController.m */,
+				D0BE982919A13CEF000A133C /* FeedViewController.h */,
+				D0BE982A19A13CEF000A133C /* FeedViewController.m */,
+				D01AA9C21987E912009590A1 /* MapViewController.h */,
+				D01AA9C31987E912009590A1 /* MapViewController.m */,
+				D0BE983A19A689CF000A133C /* ReelTabBarController.h */,
+				D0BE983B19A689CF000A133C /* ReelTabBarController.m */,
+				D0BE984119AAFA67000A133C /* UserSignupViewController.h */,
+				D0BE984219AAFA67000A133C /* UserSignupViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D001F4391981EAFD004611E6 /* Reel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D001F46C1981EAFE004611E6 /* Build configuration list for PBXNativeTarget "Reel" */;
+			buildPhases = (
+				AD25D17F3F964A17A530095B /* Check Pods Manifest.lock */,
+				D001F4361981EAFD004611E6 /* Sources */,
+				D001F4371981EAFD004611E6 /* Frameworks */,
+				D001F4381981EAFD004611E6 /* Resources */,
+				961DF4E140DC4BAEAD096B24 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reel;
+			productName = Reel;
+			productReference = D001F43A1981EAFE004611E6 /* Reel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D001F4591981EAFE004611E6 /* ReelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D001F46F1981EAFE004611E6 /* Build configuration list for PBXNativeTarget "ReelTests" */;
+			buildPhases = (
+				37E521E28E6949F2848E88A2 /* Check Pods Manifest.lock */,
+				D001F4561981EAFE004611E6 /* Sources */,
+				D001F4571981EAFE004611E6 /* Frameworks */,
+				D001F4581981EAFE004611E6 /* Resources */,
+				F526AF8540B041EA828E8B1E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D001F4611981EAFE004611E6 /* PBXTargetDependency */,
+			);
+			name = ReelTests;
+			productName = ReelTests;
+			productReference = D001F45A1981EAFE004611E6 /* ReelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D001F4321981EAFD004611E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Jason Arias";
+				TargetAttributes = {
+					D001F4391981EAFD004611E6 = {
+						DevelopmentTeam = U24C2EMZ85;
+					};
+					D001F4591981EAFE004611E6 = {
+						TestTargetID = D001F4391981EAFD004611E6;
+					};
+				};
+			};
+			buildConfigurationList = D001F4351981EAFD004611E6 /* Build configuration list for PBXProject "Reel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D001F4311981EAFD004611E6;
+			productRefGroup = D001F43B1981EAFE004611E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D001F4391981EAFD004611E6 /* Reel */,
+				D001F4591981EAFE004611E6 /* ReelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D001F4381981EAFD004611E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0BE984019A69ED8000A133C /* map_pin.png in Resources */,
+				D0BE982819947550000A133C /* Main.storyboard in Resources */,
+				D001F44A1981EAFE004611E6 /* InfoPlist.strings in Resources */,
+				D001F4551981EAFE004611E6 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D001F4581981EAFE004611E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D001F4671981EAFE004611E6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37E521E28E6949F2848E88A2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		961DF4E140DC4BAEAD096B24 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD25D17F3F964A17A530095B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F526AF8540B041EA828E8B1E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ReelTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D001F4361981EAFD004611E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */,
+				D0BE98211991D430000A133C /* AddPostConfirmationViewController.m in Sources */,
+				D001F4501981EAFE004611E6 /* AppDelegate.m in Sources */,
+				D001F44C1981EAFE004611E6 /* main.m in Sources */,
+				D001F4531981EAFE004611E6 /* Reel.xcdatamodeld in Sources */,
+				D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */,
+				D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */,
+				D0BE984319AAFA67000A133C /* UserSignupViewController.m in Sources */,
+				D0BE983619A52CB9000A133C /* User.m in Sources */,
+				D0BE983919A52E8C000A133C /* UserSession.m in Sources */,
+				D0BE983119A52679000A133C /* ReelRailsAFNClient.m in Sources */,
+				D0BE982E19A51CE0000A133C /* ReelRailsClient.m in Sources */,
+				D01AA9C41987E912009590A1 /* MapViewController.m in Sources */,
+				D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D001F4561981EAFE004611E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D001F4691981EAFE004611E6 /* ReelTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D001F4611981EAFE004611E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D001F4391981EAFD004611E6 /* Reel */;
+			targetProxy = D001F4601981EAFE004611E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D001F4481981EAFE004611E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D001F4491981EAFE004611E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D001F4651981EAFE004611E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D001F4661981EAFE004611E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D001F46A1981EAFE004611E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D001F46B1981EAFE004611E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D001F46D1981EAFE004611E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D0D2797E7D45A78BB64F59 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ROOT_URL='@\"https://reel-staging.herokuapp.com/v1/\"'",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Reel/Reel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D001F46E1981EAFE004611E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D0D2797E7D45A78BB64F59 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"https://api.reel.io/v1/\"'";
+				INFOPLIST_FILE = "Reel/Reel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D001F4701981EAFE004611E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 107C909932B54EFC8CEDEFE9 /* Pods-ReelTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reel.app/Reel";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ReelTests/ReelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D001F4711981EAFE004611E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 107C909932B54EFC8CEDEFE9 /* Pods-ReelTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reel.app/Reel";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				INFOPLIST_FILE = "ReelTests/ReelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		D001F4721982EF66004611E6 /* Alpha */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Alpha;
+		};
+		D001F4731982EF66004611E6 /* Alpha */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D0D2797E7D45A78BB64F59 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"https://reel-staging.herokuapp.com/v1/\"'";
+				INFOPLIST_FILE = "Reel/Reel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Alpha;
+		};
+		D001F4741982EF66004611E6 /* Alpha */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 107C909932B54EFC8CEDEFE9 /* Pods-ReelTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reel.app/Reel";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				INFOPLIST_FILE = "ReelTests/ReelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Alpha;
+		};
+		D001F4751982EF70004611E6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Beta;
+		};
+		D001F4761982EF70004611E6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4D0D2797E7D45A78BB64F59 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://sleepy-lake-5504.herokuapp.com/v1/\"'";
+				INFOPLIST_FILE = "Reel/Reel-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Beta;
+		};
+		D001F4771982EF70004611E6 /* Beta */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 107C909932B54EFC8CEDEFE9 /* Pods-ReelTests.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Reel.app/Reel";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
+				INFOPLIST_FILE = "ReelTests/ReelTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Beta;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D001F4351981EAFD004611E6 /* Build configuration list for PBXProject "Reel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D001F46A1981EAFE004611E6 /* Debug */,
+				D001F46B1981EAFE004611E6 /* Release */,
+				D001F4751982EF70004611E6 /* Beta */,
+				D001F4721982EF66004611E6 /* Alpha */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D001F46C1981EAFE004611E6 /* Build configuration list for PBXNativeTarget "Reel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D001F46D1981EAFE004611E6 /* Debug */,
+				D001F46E1981EAFE004611E6 /* Release */,
+				D001F4761982EF70004611E6 /* Beta */,
+				D001F4731982EF66004611E6 /* Alpha */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D001F46F1981EAFE004611E6 /* Build configuration list for PBXNativeTarget "ReelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D001F4701981EAFE004611E6 /* Debug */,
+				D001F4711981EAFE004611E6 /* Release */,
+				D001F4771982EF70004611E6 /* Beta */,
+				D001F4741982EF66004611E6 /* Alpha */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D001F4511981EAFE004611E6 /* Reel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D001F4521981EAFE004611E6 /* Reel.xcdatamodel */,
+			);
+			currentVersion = D001F4521981EAFE004611E6 /* Reel.xcdatamodel */;
+			path = Reel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D001F4321981EAFD004611E6 /* Project object */;
+}
