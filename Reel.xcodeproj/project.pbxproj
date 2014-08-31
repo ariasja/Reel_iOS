@@ -27,8 +27,6 @@
 		D01AA9C41987E912009590A1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C31987E912009590A1 /* MapViewController.m */; };
 		D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C6198C7304009590A1 /* AddPostViewController.m */; };
 		D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */; };
-		D0BE98211991D430000A133C /* AddPostConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98201991D430000A133C /* AddPostConfirmationViewController.m */; };
-		D0BE982819947550000A133C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BE982719947550000A133C /* Main.storyboard */; };
 		D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE982A19A13CEF000A133C /* FeedViewController.m */; };
 		D0BE982E19A51CE0000A133C /* ReelRailsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE982D19A51CE0000A133C /* ReelRailsClient.m */; };
 		D0BE983119A52679000A133C /* ReelRailsAFNClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE983019A52679000A133C /* ReelRailsAFNClient.m */; };
@@ -37,6 +35,11 @@
 		D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE983B19A689CF000A133C /* ReelTabBarController.m */; };
 		D0BE984019A69ED8000A133C /* map_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE983F19A69ED8000A133C /* map_pin.png */; };
 		D0BE984319AAFA67000A133C /* UserSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE984219AAFA67000A133C /* UserSignupViewController.m */; };
+		D0BE988019AF8B21000A133C /* UserSigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE987F19AF8B21000A133C /* UserSigninViewController.m */; };
+		D0BE988419AF8D2A000A133C /* UserSignInSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */; };
+		D0BE988719B2BB09000A133C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE988619B2BB09000A133C /* ProfileViewController.m */; };
+		D0BE988A19B2BE05000A133C /* UserSessionNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE988919B2BE05000A133C /* UserSessionNavigationController.m */; };
+		D0BE989019B2C1A1000A133C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BE988F19B2C1A1000A133C /* Main.storyboard */; };
 		E487CA1B72414492B0C98DD5 /* libPods-ReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */; };
 /* End PBXBuildFile section */
 
@@ -80,9 +83,6 @@
 		D01AA9C6198C7304009590A1 /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
 		D0BE981C1990A2A2000A133C /* UIColor+ColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorExtensions.h"; sourceTree = "<group>"; };
 		D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorExtensions.m"; sourceTree = "<group>"; };
-		D0BE981F1991D430000A133C /* AddPostConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostConfirmationViewController.h; sourceTree = "<group>"; };
-		D0BE98201991D430000A133C /* AddPostConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostConfirmationViewController.m; sourceTree = "<group>"; };
-		D0BE982719947550000A133C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D0BE982919A13CEF000A133C /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		D0BE982A19A13CEF000A133C /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		D0BE982C19A51CE0000A133C /* ReelRailsClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReelRailsClient.h; sourceTree = "<group>"; };
@@ -98,6 +98,15 @@
 		D0BE983F19A69ED8000A133C /* map_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_pin.png; path = ../../../map_pin.png; sourceTree = "<group>"; };
 		D0BE984119AAFA67000A133C /* UserSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignupViewController.h; sourceTree = "<group>"; };
 		D0BE984219AAFA67000A133C /* UserSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignupViewController.m; sourceTree = "<group>"; };
+		D0BE987E19AF8B21000A133C /* UserSigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSigninViewController.h; sourceTree = "<group>"; };
+		D0BE987F19AF8B21000A133C /* UserSigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSigninViewController.m; sourceTree = "<group>"; };
+		D0BE988219AF8D2A000A133C /* UserSignInSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignInSignUpViewController.h; sourceTree = "<group>"; };
+		D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignInSignUpViewController.m; sourceTree = "<group>"; };
+		D0BE988519B2BB09000A133C /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		D0BE988619B2BB09000A133C /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		D0BE988819B2BE05000A133C /* UserSessionNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSessionNavigationController.h; sourceTree = "<group>"; };
+		D0BE988919B2BE05000A133C /* UserSessionNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSessionNavigationController.m; sourceTree = "<group>"; };
+		D0BE988F19B2C1A1000A133C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Programs/Reel/Reel/Reel/Main.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,16 +179,17 @@
 		D001F4451981EAFE004611E6 /* Reel */ = {
 			isa = PBXGroup;
 			children = (
-				D0BE982719947550000A133C /* Main.storyboard */,
+				D0BE988F19B2C1A1000A133C /* Main.storyboard */,
 				D001F4541981EAFE004611E6 /* Images.xcassets */,
 				D001F4511981EAFE004611E6 /* Reel.xcdatamodeld */,
-				D0BE983319A527A3000A133C /* ViewControllers */,
 				D0BE983219A5278A000A133C /* Clients */,
-				D001F4461981EAFE004611E6 /* Supporting Files */,
+				D0BE988B19B2BE0E000A133C /* NavigationControllers */,
+				D0BE983319A527A3000A133C /* ViewControllers */,
 				D0BE983419A52CB9000A133C /* User.h */,
 				D0BE983519A52CB9000A133C /* User.m */,
 				D0BE983719A52E8C000A133C /* UserSession.h */,
 				D0BE983819A52E8C000A133C /* UserSession.m */,
+				D001F4461981EAFE004611E6 /* Supporting Files */,
 			);
 			path = Reel;
 			sourceTree = "<group>";
@@ -233,18 +243,39 @@
 			children = (
 				D01AA9C5198C7304009590A1 /* AddPostViewController.h */,
 				D01AA9C6198C7304009590A1 /* AddPostViewController.m */,
-				D0BE981F1991D430000A133C /* AddPostConfirmationViewController.h */,
-				D0BE98201991D430000A133C /* AddPostConfirmationViewController.m */,
 				D0BE982919A13CEF000A133C /* FeedViewController.h */,
 				D0BE982A19A13CEF000A133C /* FeedViewController.m */,
 				D01AA9C21987E912009590A1 /* MapViewController.h */,
 				D01AA9C31987E912009590A1 /* MapViewController.m */,
+				D0BE988519B2BB09000A133C /* ProfileViewController.h */,
+				D0BE988619B2BB09000A133C /* ProfileViewController.m */,
 				D0BE983A19A689CF000A133C /* ReelTabBarController.h */,
 				D0BE983B19A689CF000A133C /* ReelTabBarController.m */,
-				D0BE984119AAFA67000A133C /* UserSignupViewController.h */,
-				D0BE984219AAFA67000A133C /* UserSignupViewController.m */,
+				D0BE988119AF8D01000A133C /* SignInSignUp */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D0BE988119AF8D01000A133C /* SignInSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE984119AAFA67000A133C /* UserSignupViewController.h */,
+				D0BE984219AAFA67000A133C /* UserSignupViewController.m */,
+				D0BE987E19AF8B21000A133C /* UserSigninViewController.h */,
+				D0BE987F19AF8B21000A133C /* UserSigninViewController.m */,
+				D0BE988219AF8D2A000A133C /* UserSignInSignUpViewController.h */,
+				D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */,
+			);
+			name = SignInSignUp;
+			sourceTree = "<group>";
+		};
+		D0BE988B19B2BE0E000A133C /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE988819B2BE05000A133C /* UserSessionNavigationController.h */,
+				D0BE988919B2BE05000A133C /* UserSessionNavigationController.m */,
+			);
+			name = NavigationControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +343,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D001F4311981EAFD004611E6;
 			productRefGroup = D001F43B1981EAFE004611E6 /* Products */;
@@ -330,9 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BE984019A69ED8000A133C /* map_pin.png in Resources */,
-				D0BE982819947550000A133C /* Main.storyboard in Resources */,
 				D001F44A1981EAFE004611E6 /* InfoPlist.strings in Resources */,
 				D001F4551981EAFE004611E6 /* Images.xcassets in Resources */,
+				D0BE989019B2C1A1000A133C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,18 +447,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */,
-				D0BE98211991D430000A133C /* AddPostConfirmationViewController.m in Sources */,
 				D001F4501981EAFE004611E6 /* AppDelegate.m in Sources */,
 				D001F44C1981EAFE004611E6 /* main.m in Sources */,
+				D0BE988419AF8D2A000A133C /* UserSignInSignUpViewController.m in Sources */,
 				D001F4531981EAFE004611E6 /* Reel.xcdatamodeld in Sources */,
 				D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */,
 				D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */,
 				D0BE984319AAFA67000A133C /* UserSignupViewController.m in Sources */,
+				D0BE988719B2BB09000A133C /* ProfileViewController.m in Sources */,
+				D0BE988019AF8B21000A133C /* UserSigninViewController.m in Sources */,
 				D0BE983619A52CB9000A133C /* User.m in Sources */,
 				D0BE983919A52E8C000A133C /* UserSession.m in Sources */,
 				D0BE983119A52679000A133C /* ReelRailsAFNClient.m in Sources */,
 				D0BE982E19A51CE0000A133C /* ReelRailsClient.m in Sources */,
 				D01AA9C41987E912009590A1 /* MapViewController.m in Sources */,
+				D0BE988A19B2BE05000A133C /* UserSessionNavigationController.m in Sources */,
 				D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,7 +770,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://sleepy-lake-5504.herokuapp.com/v1/\"'";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://63918541.ngrok.com/v1/\"'";
 				INFOPLIST_FILE = "Reel/Reel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

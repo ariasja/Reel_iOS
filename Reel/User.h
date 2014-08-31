@@ -13,6 +13,7 @@
 //properties
 @property (strong, nonatomic) NSNumber *userID;
 @property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *userUsername;
 @property (strong, nonatomic) NSString *userEmail;
 @property (strong, nonatomic) NSString *userBio;
 

@@ -18,6 +18,7 @@
     
     _userID = JSONDictionary[@"id"];
     _userName = JSONDictionary[@"name"];
+    _userUsername = JSONDictionary[@"Username"];
     _userEmail = JSONDictionary[@"email"];
     _userBio = JSONDictionary[@"bio"];
     
