@@ -14,6 +14,10 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 
 - (void) createCurrentUserWithParameters:(NSDictionary*) parameters
                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (void) createSessionWithParameters: (NSDictionary*) parameters
+                     CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (void) createPostWithParameters:(NSDictionary*)parameters
+                  CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 + (instancetype) sharedClient;
 
 

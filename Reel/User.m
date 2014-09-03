@@ -6,7 +6,13 @@
 //  Copyright (c) 2014 Jason Arias. All rights reserved.
 //
 
+//  Should only be created and altered from UserSession object
+
 #import "User.h"
+
+@interface User()
+
+@end
 
 @implementation User
 
@@ -16,11 +22,11 @@
     if (!self)
         return nil;
     
-    _userID = JSONDictionary[@"id"];
-    _userName = JSONDictionary[@"name"];
-    _userUsername = JSONDictionary[@"Username"];
-    _userEmail = JSONDictionary[@"email"];
-    _userBio = JSONDictionary[@"bio"];
+    _userId = JSONDictionary[@"userID"];
+    _userName = JSONDictionary[@"userName"];
+    _userUsername = JSONDictionary[@"userUsername"];
+    _userEmail = JSONDictionary[@"userEmail"];
+    _userBio = JSONDictionary[@"userBio"];
     
     return self;
 }

@@ -46,11 +46,11 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
     sessionConfiguration.timeoutIntervalForRequest = 30.0;
     sessionConfiguration.timeoutIntervalForResource = 30.0;
     //Set the session headers
-    NSDictionary *headers = [UserSession userID] ?
+    NSDictionary *headers = [[UserSession sharedSession] userId] ?
   @{
     @"Accept" : @"application/json",
     @"Content-Type" : @"application/json",
-    @"X-DEVICE-TOKEN" : [UserSession userID]
+    @"X-DEVICE-TOKEN" : [[UserSession sharedSession] userId]
     } :
   @{
     @"Accept" : @"application/json",
@@ -83,7 +83,7 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
                                                 JSONObjectWithData:data
                                                 options:kNilOptions
                                                 error:nil];
-            [UserSession setUserID:responseDictionary[@"device_token"]];
+            [[UserSession sharedSession] setUserId:responseDictionary[@"device_token"]];
             // Create a new configuration with the user ID
             NSURLSessionConfiguration *newConfiguration = self.session.configuration;
             [newConfiguration setHTTPAdditionalHeaders:

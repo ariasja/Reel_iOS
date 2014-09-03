@@ -30,15 +30,16 @@
 
 - (void)viewDidLoad
 {
-    User* user = [[User alloc] init];
-    if([UserSession userMatchesCurrentUserSession:user])
     [super viewDidLoad];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    BOOL signedIn = [[UserSession sharedSession] sessionActive];
+    if(signedIn){
+        [self performSegueWithIdentifier:@"SkipSignInSignUpSegue" sender:self];
+    }
 }
 
 @end

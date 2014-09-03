@@ -11,17 +11,12 @@
 #import "UserSession.h"
 
 @interface ReelTabBarController ()
-
 @end
 
 @implementation ReelTabBarController
 
-+ (void) hideTabBar
-{
-}
++ (void) hideTabBar{}
 
-+ (void) showTabBar
-{
-}
++ (void) showTabBar{}
 
 @end

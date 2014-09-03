@@ -7,8 +7,13 @@
 //
 
 #import "ProfileViewController.h"
+#import "UserSession.h"
 
 @interface ProfileViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *nameTextView;
+@property (weak, nonatomic) IBOutlet UITextView *usernameTextView;
+@property (weak, nonatomic) IBOutlet UITextView *bioTextView;
+
 
 @end
 
@@ -26,12 +31,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self.navigationItem setHidesBackButton:YES animated:YES];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [_nameTextView setText:[[UserSession sharedSession] userName]];
+    [_usernameTextView setText:[[UserSession sharedSession] userUsername]];
+    [_bioTextView setText:[[UserSession sharedSession] userBio]];
 }
 
 

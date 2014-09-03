@@ -41,17 +41,23 @@
     
     NSLog(@"[UserSignupViewController signUpButtonTouchUpInside] (1)");
     [SVProgressHUD show];
-    [[ReelRailsAFNClient sharedClient] createCurrentUserWithParameters:@{@"name":_nameTextField.text,
-                                                                         @"username":_usernameTextField.text,
-                                                                         @"email": _emailTextField.text,
-                                                                         @"password": _passwordTextField.text,
-                                                                         @"password_confirmation": _passwordConfirmationTextField.text}
-                                                       CompletionBlock:^(NSError *error){
-                                                           [SVProgressHUD dismiss];
-                                                       }];
-        
     
+    NSDictionary *userParams = @{@"name":_nameTextField.text,
+                                    @"username":_usernameTextField.text,
+                                    @"email": _emailTextField.text,
+                                    @"password": _passwordTextField.text,
+                                    @"password_confirmation": _passwordConfirmationTextField.text};
+    [[ReelRailsAFNClient sharedClient]
+     createCurrentUserWithParameters:userParams
+                     CompletionBlock:^(NSError *error){
+                     }];
     
+    [[ReelRailsAFNClient sharedClient]
+     createSessionWithParameters:@{@"email":_emailTextField.text,
+                                              @"password":_passwordTextField.text}
+                            CompletionBlock:^(NSError *error){
+                                [SVProgressHUD dismiss];
+                            }];
 }
 
 

@@ -182,13 +182,9 @@
 				D0BE988F19B2C1A1000A133C /* Main.storyboard */,
 				D001F4541981EAFE004611E6 /* Images.xcassets */,
 				D001F4511981EAFE004611E6 /* Reel.xcdatamodeld */,
+				D0BE989519B627B3000A133C /* Controllers */,
 				D0BE983219A5278A000A133C /* Clients */,
-				D0BE988B19B2BE0E000A133C /* NavigationControllers */,
-				D0BE983319A527A3000A133C /* ViewControllers */,
-				D0BE983419A52CB9000A133C /* User.h */,
-				D0BE983519A52CB9000A133C /* User.m */,
-				D0BE983719A52E8C000A133C /* UserSession.h */,
-				D0BE983819A52E8C000A133C /* UserSession.m */,
+				D0BE989119B6275D000A133C /* Models */,
 				D001F4461981EAFE004611E6 /* Supporting Files */,
 			);
 			path = Reel;
@@ -276,6 +272,34 @@
 				D0BE988919B2BE05000A133C /* UserSessionNavigationController.m */,
 			);
 			name = NavigationControllers;
+			sourceTree = "<group>";
+		};
+		D0BE989119B6275D000A133C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE989219B62767000A133C /* Users */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D0BE989219B62767000A133C /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE983419A52CB9000A133C /* User.h */,
+				D0BE983519A52CB9000A133C /* User.m */,
+				D0BE983719A52E8C000A133C /* UserSession.h */,
+				D0BE983819A52E8C000A133C /* UserSession.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		D0BE989519B627B3000A133C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE988B19B2BE0E000A133C /* NavigationControllers */,
+				D0BE983319A527A3000A133C /* ViewControllers */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

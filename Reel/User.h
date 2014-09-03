@@ -10,8 +10,7 @@
 
 @interface User : NSObject
 
-//properties
-@property (strong, nonatomic) NSNumber *userID;
+@property (strong, nonatomic) NSNumber *userId;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *userUsername;
 @property (strong, nonatomic) NSString *userEmail;

@@ -7,14 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @class User;
 
-@interface UserSession : NSObject
+@interface UserSession : User
 
-+ (void) setUserID:(NSString *)userID;
-+ (NSString *) userID;
+-(BOOL) sessionActive;
+-(void) setSessionActive:(BOOL)sessionActive;
 
-+ (BOOL) userMatchesCurrentUserSession:(User *)user;
+-(void)updateUserForUserSessionWithParams:(NSDictionary *)params;
+
++(instancetype)sharedSession;
+
+//-(NSNumber *)getUserID;
+//-(NSString *)getUserName;
+//-(NSString *)getUserUsername;
+//-(NSString *)getUserEmail;
+//-(NSString *)getUserBio;
+//-(void)setUserID:(NSNumber *)userID;
+//-(void)setUserName:(NSString *)userName;
+//-(void)setUserUsername:(NSString *)userUsername;
+//-(void)setUserEmail:(NSString *)userEmail;
+//-(void)setUserBio:(NSString *)userBio;
 
 @end
