@@ -23,4 +23,13 @@
     [super viewDidLoad];
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    BOOL signedIn = [[UserSession sharedSession] sessionActive];
+    if(signedIn){
+        //[self performSegueWithIdentifier:@"SkipSignInSignUpSegue" sender:self];
+    }
+}
+
 @end

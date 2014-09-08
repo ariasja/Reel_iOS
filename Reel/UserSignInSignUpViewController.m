@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Jason Arias. All rights reserved.
 //
 
+#import "ProfileViewController.h"
+#import "SWRevealViewController.h"
+#import "UserSigninViewController.h"
 #import "User.h"
 #import "UserSession.h"
 #import "UserSignInSignUpViewController.h"
@@ -36,10 +39,22 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    BOOL signedIn = [[UserSession sharedSession] sessionActive];
-    if(signedIn){
-        [self performSegueWithIdentifier:@"SkipSignInSignUpSegue" sender:self];
-    }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationItem setHidesBackButton:YES];
+    
+}
+
+- (IBAction)signInButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"SignInButtonPressedSegue" sender:self];
+    
+}
+- (IBAction)signUpButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"SignUpButtonPressedSegue" sender:self];
 }
 
 @end

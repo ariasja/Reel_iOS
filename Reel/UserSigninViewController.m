@@ -33,7 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -41,15 +40,36 @@
     [super viewDidAppear:animated];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (IBAction)signInButtonTouchUpInside:(id)sender
 {
     [SVProgressHUD show];
-    [[ReelRailsAFNClient sharedClient]
-     createSessionWithParameters:@{@"email":_emailTextField.text,
-                                   @"password":_passwordTextField.text}
-     CompletionBlock:^(NSError *error){
-         [SVProgressHUD dismiss];
-     }];
+    [[ReelRailsAFNClient sharedClient] createSessionWithParameters:@{@"email":_emailTextField.text,
+                                                                     @"password":_passwordTextField.text}
+                                                   CompletionBlock:^(NSError *error){
+                                                       [self segueToProfile];
+                                                       [SVProgressHUD dismiss];
+                                                   }];
+}
+
+-(void)segueToProfile
+{
+    if([[ReelRailsAFNClient sharedClient] sessionCreateSuccess])
+    {
+        [self performSegueWithIdentifier:@"SignInButtonPressedToProfileSegue" sender:self];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Unsuccessful"
+                                                        message:@""
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 

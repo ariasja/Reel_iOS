@@ -18,7 +18,7 @@
 
 - (id)initWithJSON:(NSDictionary *)JSONDictionary
 {
-    self = [super init];
+    self = [self init];
     if (!self)
         return nil;
     

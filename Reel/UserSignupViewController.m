@@ -13,6 +13,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 
 
+
 @interface UserSignupViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
@@ -50,14 +51,32 @@
     [[ReelRailsAFNClient sharedClient]
      createCurrentUserWithParameters:userParams
                      CompletionBlock:^(NSError *error){
+                         [[ReelRailsAFNClient sharedClient]
+                          createSessionWithParameters:@{@"email":_emailTextField.text,
+                                                        @"password":_passwordTextField.text}
+                          CompletionBlock:^(NSError *error){
+                              [self segueToProfile];
+                              [SVProgressHUD dismiss];
+                          }];
                      }];
     
-    [[ReelRailsAFNClient sharedClient]
-     createSessionWithParameters:@{@"email":_emailTextField.text,
-                                              @"password":_passwordTextField.text}
-                            CompletionBlock:^(NSError *error){
-                                [SVProgressHUD dismiss];
-                            }];
+
+}
+
+-(void)segueToProfile
+{
+    if([[ReelRailsAFNClient sharedClient] sessionCreateSuccess])
+    {
+        [self performSegueWithIdentifier:@"SignUpButtonPressedToProfileSegue" sender:self];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SignUp Unsuccessful"
+                                                        message:@""
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 

@@ -40,6 +40,9 @@
 		D0BE988719B2BB09000A133C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE988619B2BB09000A133C /* ProfileViewController.m */; };
 		D0BE988A19B2BE05000A133C /* UserSessionNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE988919B2BE05000A133C /* UserSessionNavigationController.m */; };
 		D0BE989019B2C1A1000A133C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BE988F19B2C1A1000A133C /* Main.storyboard */; };
+		D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A119BD1580000A133C /* SWRevealViewController.m */; };
+		D0BE98A519BD158C000A133C /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A419BD158C000A133C /* SidebarViewController.m */; };
+		D0BE98A919BD2CF6000A133C /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */; };
 		E487CA1B72414492B0C98DD5 /* libPods-ReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +110,12 @@
 		D0BE988819B2BE05000A133C /* UserSessionNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSessionNavigationController.h; sourceTree = "<group>"; };
 		D0BE988919B2BE05000A133C /* UserSessionNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSessionNavigationController.m; sourceTree = "<group>"; };
 		D0BE988F19B2C1A1000A133C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Programs/Reel/Reel/Reel/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		D0BE98A019BD1580000A133C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		D0BE98A119BD1580000A133C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		D0BE98A319BD158C000A133C /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		D0BE98A419BD158C000A133C /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
+		D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,14 +254,13 @@
 				D01AA9C31987E912009590A1 /* MapViewController.m */,
 				D0BE988519B2BB09000A133C /* ProfileViewController.h */,
 				D0BE988619B2BB09000A133C /* ProfileViewController.m */,
-				D0BE983A19A689CF000A133C /* ReelTabBarController.h */,
-				D0BE983B19A689CF000A133C /* ReelTabBarController.m */,
-				D0BE988119AF8D01000A133C /* SignInSignUp */,
+				D0BE98A619BD1BC7000A133C /* Sidebar */,
+				D0BE988119AF8D01000A133C /* UserControllers */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D0BE988119AF8D01000A133C /* SignInSignUp */ = {
+		D0BE988119AF8D01000A133C /* UserControllers */ = {
 			isa = PBXGroup;
 			children = (
 				D0BE984119AAFA67000A133C /* UserSignupViewController.h */,
@@ -261,8 +269,10 @@
 				D0BE987F19AF8B21000A133C /* UserSigninViewController.m */,
 				D0BE988219AF8D2A000A133C /* UserSignInSignUpViewController.h */,
 				D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */,
+				D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */,
+				D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */,
 			);
-			name = SignInSignUp;
+			name = UserControllers;
 			sourceTree = "<group>";
 		};
 		D0BE988B19B2BE0E000A133C /* NavigationControllers */ = {
@@ -296,10 +306,31 @@
 		D0BE989519B627B3000A133C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D0BE989619B791BB000A133C /* TabBarControllers */,
 				D0BE988B19B2BE0E000A133C /* NavigationControllers */,
 				D0BE983319A527A3000A133C /* ViewControllers */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D0BE989619B791BB000A133C /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE983A19A689CF000A133C /* ReelTabBarController.h */,
+				D0BE983B19A689CF000A133C /* ReelTabBarController.m */,
+			);
+			name = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		D0BE98A619BD1BC7000A133C /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE98A319BD158C000A133C /* SidebarViewController.h */,
+				D0BE98A419BD158C000A133C /* SidebarViewController.m */,
+				D0BE98A019BD1580000A133C /* SWRevealViewController.h */,
+				D0BE98A119BD1580000A133C /* SWRevealViewController.m */,
+			);
+			name = Sidebar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,11 +501,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0BE98A919BD2CF6000A133C /* EditInfoViewController.m in Sources */,
 				D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */,
 				D001F4501981EAFE004611E6 /* AppDelegate.m in Sources */,
 				D001F44C1981EAFE004611E6 /* main.m in Sources */,
 				D0BE988419AF8D2A000A133C /* UserSignInSignUpViewController.m in Sources */,
 				D001F4531981EAFE004611E6 /* Reel.xcdatamodeld in Sources */,
+				D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */,
+				D0BE98A519BD158C000A133C /* SidebarViewController.m in Sources */,
 				D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */,
 				D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */,
 				D0BE984319AAFA67000A133C /* UserSignupViewController.m in Sources */,
@@ -794,7 +828,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://63918541.ngrok.com/v1/\"'";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://cb22748.ngrok.com/v1/\"'";
 				INFOPLIST_FILE = "Reel/Reel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

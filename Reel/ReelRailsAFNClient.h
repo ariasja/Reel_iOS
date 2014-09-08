@@ -12,10 +12,22 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 
 @interface ReelRailsAFNClient : AFHTTPSessionManager
 
+@property(nonatomic) BOOL sessionCreateSuccess;
+@property(nonatomic) BOOL sessionDestroySuccess;
+@property(nonatomic) BOOL userUpdateSuccess;
+
+//User
 - (void) createCurrentUserWithParameters:(NSDictionary*) parameters
                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (void) updateCurrentUserWithParameters:(NSDictionary*)parameters
+                         CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+//Session
 - (void) createSessionWithParameters: (NSDictionary*) parameters
                      CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (void) destroySessionWithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+//Post
 - (void) createPostWithParameters:(NSDictionary*)parameters
                   CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 + (instancetype) sharedClient;

@@ -13,22 +13,9 @@
 
 @interface UserSession : User
 
--(BOOL) sessionActive;
--(void) setSessionActive:(BOOL)sessionActive;
+@property (nonatomic) BOOL sessionActive;
 
 -(void)updateUserForUserSessionWithParams:(NSDictionary *)params;
-
 +(instancetype)sharedSession;
-
-//-(NSNumber *)getUserID;
-//-(NSString *)getUserName;
-//-(NSString *)getUserUsername;
-//-(NSString *)getUserEmail;
-//-(NSString *)getUserBio;
-//-(void)setUserID:(NSNumber *)userID;
-//-(void)setUserName:(NSString *)userName;
-//-(void)setUserUsername:(NSString *)userUsername;
-//-(void)setUserEmail:(NSString *)userEmail;
-//-(void)setUserBio:(NSString *)userBio;
 
 @end

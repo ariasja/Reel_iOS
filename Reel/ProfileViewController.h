@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileViewController : UITableViewController
-
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @end
