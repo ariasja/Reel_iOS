@@ -39,8 +39,7 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 //Folder
 -(void)createFolderWithParameters:(NSDictionary*)parameters
                   CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
--(void)getFoldersForUserWithId:(NSDictionary*)parameters
-                      FolderArray:(NSMutableArray*)folderArray
+-(NSMutableArray*)getFoldersForUserWithId:(NSDictionary*)parameters
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 
 //Shared Client

@@ -72,10 +72,6 @@
     NSLog(@"%@", [[UserSession sharedSession] userBio]);
     NSString *userBio = [[UserSession sharedSession] userBio] ? [[UserSession sharedSession] userBio] : @"";
     [_bioTextView setText:userBio];
-    [self getFolders];
-    [self getPosts];
-    NSLog(@"%@", [self postArray]);
-    NSLog(@"%@", [self folderArray]);
 }
 
 
@@ -90,16 +86,12 @@
      [self setPostArray:postsArray];
 }
 
--(void)getFolders
+-(NSMutableArray*)getFolders
 {
-    NSMutableArray* foldersArray = [[NSMutableArray alloc] init];
     NSDictionary* parameters = @{ @"user_id":[[UserSession sharedSession] userId]};
-    [[ReelRailsAFNClient sharedClient] getFoldersForUserWithId:parameters
-                                                   FolderArray:foldersArray
+    return [[ReelRailsAFNClient sharedClient] getFoldersForUserWithId:parameters
                                                CompletionBlock:^(NSError *error){
-                                                   NSLog(@"%@", foldersArray);
                                                }];
-    [self setFolderArray:foldersArray];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,6 +127,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows = 0;
+    [self getPosts];
+    [self setFolderArray:[self getFolders]];
     if([_reelsOrAllSegmentedControl isEnabledForSegmentAtIndex:0])
     {
         numberOfRows = [[self folderArray] count];

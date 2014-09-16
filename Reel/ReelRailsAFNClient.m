@@ -1,4 +1,4 @@
-//
+ //
 //  ReelRailsAFNClient.m
 //  Reel
 //
@@ -151,7 +151,7 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
     NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
     [pathString appendString:[userId stringValue]];
     [pathString appendString:@"/posts"];
-    
+    //send request to API
     [self GET:pathString parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSLog(@"GET Posts Successful");
@@ -159,7 +159,6 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
           [postArray setArray:responseObject];
           block(nil);
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
-          //code
           NSLog(@"GET Posts Unsuccessful");
           block(error);
       }];
@@ -181,10 +180,10 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
         }];
 }
 
--(void)getFoldersForUserWithId:(NSDictionary*)parameters
-                      FolderArray:(NSMutableArray *)folderArray
+-(NSMutableArray*)getFoldersForUserWithId:(NSDictionary*)parameters
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
 {
+    NSMutableArray* folderArray = [[NSMutableArray alloc] init];
     NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
     [pathString appendString:[parameters[@"user_id"] stringValue]];
     [pathString appendString:@"/folders"];
@@ -196,8 +195,10 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
           block(nil);
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
           NSLog(@"GET Folders Unsuccessful");
+          [folderArray setArray:@[]];
           block(error);
       }];
+    return folderArray;
 }
 
 

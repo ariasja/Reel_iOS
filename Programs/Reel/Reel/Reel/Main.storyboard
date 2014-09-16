@@ -570,7 +570,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Name" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX0-x6-7Li">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Name" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uX0-x6-7Li">
                                     <rect key="frame" x="0.0" y="9" width="320" height="46"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -579,7 +579,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="@Username" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZk-5m-cKG">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="@Username" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TZk-5m-cKG">
                                     <rect key="frame" x="0.0" y="53" width="320" height="29"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -588,7 +588,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Bio" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-6i-k3a">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Bio" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-6i-k3a">
                                     <rect key="frame" x="0.0" y="90" width="320" height="32"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -649,7 +649,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Title" translatesAutoresizingMaskIntoConstraints="NO" id="zhm-fR-USN">
-                                            <rect key="frame" x="20" y="20" width="280" height="43"/>
+                                            <rect key="frame" x="20" y="17" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="textColor" red="0.086274512110000007" green="0.36862745879999997" blue="0.37647062539999998" alpha="1" colorSpace="deviceRGB"/>
