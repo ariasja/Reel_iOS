@@ -27,6 +27,16 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
        success:^(NSURLSessionDataTask *task, id responseObject) {
            NSLog(@"User Created Sucessfully");
            [self.requestSerializer setValue:responseObject[@"device_token"] forHTTPHeaderField:@"X-DEVICE-TOKEN"];
+           NSLog(@"%@", responseObject[@"id"]);
+           NSLog(@"%@", responseObject[@"name"]);
+           NSLog(@"%@", responseObject[@"username"]);
+           NSLog(@"%@", responseObject[@"email"]);
+           NSLog(@"%@", responseObject[@"bio"]);
+           [[UserSession sharedSession] updateUserForUserSessionWithParams:@{@"userId":responseObject[@"id"],
+                                                                             @"userName":responseObject[@"name"],
+                                                                             @"userUsername":responseObject[@"username"],
+                                                                             @"userEmail":responseObject[@"email"],
+                                                                             @"userBio":@""}];
            block(nil);
        } failure:^(NSURLSessionDataTask *task, NSError *error) {
            NSLog(@"User Not Created");
@@ -43,6 +53,12 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
     [self PUT:pathString  parameters:parameters
         success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"User Updated Successfully");
+            NSLog(@"%@", responseObject[@"id"]);
+            NSLog(@"%@", responseObject[@"name"]);
+            NSLog(@"%@", responseObject[@"username"]);
+            NSLog(@"%@", responseObject[@"email"]);
+            NSLog(@"%@", responseObject[@"bio"]);
+
             [[UserSession sharedSession] updateUserForUserSessionWithParams:@{@"userId":responseObject[@"id"],
                                                                               @"userName":responseObject[@"name"],
                                                                               @"userUsername":responseObject[@"username"],
@@ -126,6 +142,64 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
            block(error);
        }];
 }
+
+- (void) getPostsForUserWithId:(NSNumber*)userId
+                     PostArray:(NSMutableArray*)postArray
+               CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    //build path string
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
+    [pathString appendString:[userId stringValue]];
+    [pathString appendString:@"/posts"];
+    
+    [self GET:pathString parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"GET Posts Successful");
+          NSLog(@"%@", [responseObject class]);
+          [postArray setArray:responseObject];
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          //code
+          NSLog(@"GET Posts Unsuccessful");
+          block(error);
+      }];
+}
+
+////////////////////////////////////
+//            FOLDER              //
+////////////////////////////////////
+-(void)createFolderWithParameters:(NSDictionary*)parameters
+                  CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    [self POST:@"folders" parameters:parameters
+        success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"POST Folders Successful");
+            block(nil);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"POST Folders Unsuccessful");
+            block(error);
+        }];
+}
+
+-(void)getFoldersForUserWithId:(NSDictionary*)parameters
+                      FolderArray:(NSMutableArray *)folderArray
+               CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
+    [pathString appendString:[parameters[@"user_id"] stringValue]];
+    [pathString appendString:@"/folders"];
+    [self GET:@"folders" parameters:parameters
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"GET Folders Successful");
+          [folderArray setArray:responseObject];
+          NSLog(@"%@", folderArray);
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"GET Folders Unsuccessful");
+          block(error);
+      }];
+}
+
 
 ////////////////////////////////////
 //        SHARED CLIENT           //

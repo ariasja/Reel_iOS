@@ -30,7 +30,7 @@
     [self setUserName:params[@"userName"]];
     [self setUserUsername:params[@"userUsername"]];
     [self setUserEmail:params[@"userEmail"]];
-    [self setUserBio:@""];
+    [self setUserBio:params[@"userBio"]];
 }
 
 + (instancetype)sharedSession

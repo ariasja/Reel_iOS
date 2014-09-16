@@ -16,6 +16,8 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 @property(nonatomic) BOOL sessionDestroySuccess;
 @property(nonatomic) BOOL userUpdateSuccess;
 
+@property(strong, nonatomic) NSMutableDictionary* userPosts;
+
 //User
 - (void) createCurrentUserWithParameters:(NSDictionary*) parameters
                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
@@ -30,6 +32,18 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 //Post
 - (void) createPostWithParameters:(NSDictionary*)parameters
                   CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (void) getPostsForUserWithId:(NSNumber*)userId
+                     PostArray:(NSMutableArray*)postArray
+               CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+//Folder
+-(void)createFolderWithParameters:(NSDictionary*)parameters
+                  CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+-(void)getFoldersForUserWithId:(NSDictionary*)parameters
+                      FolderArray:(NSMutableArray*)folderArray
+               CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+//Shared Client
 + (instancetype) sharedClient;
 
 

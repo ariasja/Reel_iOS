@@ -43,6 +43,8 @@
 		D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A119BD1580000A133C /* SWRevealViewController.m */; };
 		D0BE98A519BD158C000A133C /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A419BD158C000A133C /* SidebarViewController.m */; };
 		D0BE98A919BD2CF6000A133C /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */; };
+		D0BE98AC19BE9E76000A133C /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98AB19BE9E76000A133C /* ProfileTableViewCell.m */; };
+		D0BE98B019C7878C000A133C /* ProfileFolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98AF19C7878C000A133C /* ProfileFolderTableViewCell.m */; };
 		E487CA1B72414492B0C98DD5 /* libPods-ReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,10 @@
 		D0BE98A419BD158C000A133C /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
 		D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoViewController.m; sourceTree = "<group>"; };
+		D0BE98AA19BE9E76000A133C /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		D0BE98AB19BE9E76000A133C /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
+		D0BE98AE19C7878C000A133C /* ProfileFolderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileFolderTableViewCell.h; sourceTree = "<group>"; };
+		D0BE98AF19C7878C000A133C /* ProfileFolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileFolderTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 				D0BE989519B627B3000A133C /* Controllers */,
 				D0BE983219A5278A000A133C /* Clients */,
 				D0BE989119B6275D000A133C /* Models */,
+				D0BE98AD19C7876C000A133C /* Cells */,
 				D001F4461981EAFE004611E6 /* Supporting Files */,
 			);
 			path = Reel;
@@ -252,8 +259,6 @@
 				D0BE982A19A13CEF000A133C /* FeedViewController.m */,
 				D01AA9C21987E912009590A1 /* MapViewController.h */,
 				D01AA9C31987E912009590A1 /* MapViewController.m */,
-				D0BE988519B2BB09000A133C /* ProfileViewController.h */,
-				D0BE988619B2BB09000A133C /* ProfileViewController.m */,
 				D0BE98A619BD1BC7000A133C /* Sidebar */,
 				D0BE988119AF8D01000A133C /* UserControllers */,
 			);
@@ -271,6 +276,8 @@
 				D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */,
 				D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */,
 				D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */,
+				D0BE988519B2BB09000A133C /* ProfileViewController.h */,
+				D0BE988619B2BB09000A133C /* ProfileViewController.m */,
 			);
 			name = UserControllers;
 			sourceTree = "<group>";
@@ -331,6 +338,17 @@
 				D0BE98A119BD1580000A133C /* SWRevealViewController.m */,
 			);
 			name = Sidebar;
+			sourceTree = "<group>";
+		};
+		D0BE98AD19C7876C000A133C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE98AA19BE9E76000A133C /* ProfileTableViewCell.h */,
+				D0BE98AB19BE9E76000A133C /* ProfileTableViewCell.m */,
+				D0BE98AE19C7878C000A133C /* ProfileFolderTableViewCell.h */,
+				D0BE98AF19C7878C000A133C /* ProfileFolderTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +528,7 @@
 				D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */,
 				D0BE98A519BD158C000A133C /* SidebarViewController.m in Sources */,
 				D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */,
+				D0BE98AC19BE9E76000A133C /* ProfileTableViewCell.m in Sources */,
 				D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */,
 				D0BE984319AAFA67000A133C /* UserSignupViewController.m in Sources */,
 				D0BE988719B2BB09000A133C /* ProfileViewController.m in Sources */,
@@ -521,6 +540,7 @@
 				D01AA9C41987E912009590A1 /* MapViewController.m in Sources */,
 				D0BE988A19B2BE05000A133C /* UserSessionNavigationController.m in Sources */,
 				D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */,
+				D0BE98B019C7878C000A133C /* ProfileFolderTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,7 +848,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://cb22748.ngrok.com/v1/\"'";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://31b0ab10.ngrok.com/v1/\"'";
 				INFOPLIST_FILE = "Reel/Reel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

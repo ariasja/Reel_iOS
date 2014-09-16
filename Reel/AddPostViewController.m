@@ -17,10 +17,12 @@
 @interface AddPostViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *addPostButton;
+@property (weak, nonatomic) IBOutlet UIButton *createFolderButton;
+
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *hashTagTextField;
 @property (weak, nonatomic) IBOutlet UITextField *atTagTextField;
-@property (weak, nonatomic) IBOutlet UITextField *geoLocationTextField;
+@property (weak, nonatomic) IBOutlet UITextField *folderTextField;
 
 @end
 
@@ -34,18 +36,31 @@
     [super viewDidLoad];
 }
 
+- (IBAction)createFolderButtonTouchUpInside:(id)sender {
+    [SVProgressHUD show];
+    [[ReelRailsAFNClient sharedClient] createFolderWithParameters:@{@"user_id":[[UserSession sharedSession] sessionActive]
+                                                                   ? [[[UserSession sharedSession] userId] stringValue] : @"99",
+                                                                   @"title":_folderTextField.text}
+                                                  CompletionBlock:^(NSError *error){
+                                                      [SVProgressHUD dismiss];
+                                                  }];
+}
+
 - (IBAction)addButtonTouchUpInside:(id)sender {
     [SVProgressHUD show];
     [[ReelRailsAFNClient sharedClient] createPostWithParameters:@{@"user_id":[[UserSession sharedSession] sessionActive]
-                                                                  ? [[UserSession sharedSession] userId] : @"99",
+                                                                  ? [[[UserSession sharedSession] userId] stringValue] : @"99",
                                                                   @"caption":_captionTextField.text,
-                                                                  @"hasTag":_hashTagTextField.text,
-                                                                  @"atTag":_atTagTextField.text,
-                                                                  @"geo_lat":_geoLocationTextField.text,
-                                                                  @"geo_long":_geoLocationTextField.text}
+                                                                  @"hashTag":_hashTagTextField.text,
+                                                                  @"atTag":_atTagTextField.text}
                                                 CompletionBlock:^(NSError *error) {
+
                                                     [SVProgressHUD dismiss];
                                                 }];
+}
+
+-(IBAction)editingEnded:(id)sender{
+    [sender resignFirstResponder];
 }
 
 @end

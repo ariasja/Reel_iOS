@@ -46,7 +46,15 @@
 {
     [super viewWillAppear:animated];
     [self.navigationItem setHidesBackButton:YES];
+    //[self.navigationController.navigationBar setHidden:YES];
     
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    //[self.navigationController.navigationBar setHidden:YES];
+
 }
 
 - (IBAction)signInButtonPressed:(id)sender {

@@ -46,6 +46,7 @@
     NSDictionary *userParams = @{@"name":_nameTextField.text,
                                     @"username":_usernameTextField.text,
                                     @"email": _emailTextField.text,
+                                    @"bio":@"",
                                     @"password": _passwordTextField.text,
                                     @"password_confirmation": _passwordConfirmationTextField.text};
     [[ReelRailsAFNClient sharedClient]
