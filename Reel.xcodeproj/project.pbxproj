@@ -23,6 +23,9 @@
 		D001F45F1981EAFE004611E6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D001F4431981EAFE004611E6 /* CoreData.framework */; };
 		D001F4671981EAFE004611E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D001F4651981EAFE004611E6 /* InfoPlist.strings */; };
 		D001F4691981EAFE004611E6 /* ReelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D001F4681981EAFE004611E6 /* ReelTests.m */; };
+		D0073C3119C906F70025B0B8 /* LogInToAddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0073C3019C906F70025B0B8 /* LogInToAddPostViewController.m */; };
+		D0073C3619C91E390025B0B8 /* ProfileFoldersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0073C3519C91E390025B0B8 /* ProfileFoldersTableViewController.m */; };
+		D0073C3819C933770025B0B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0073C3719C933770025B0B8 /* CoreLocation.framework */; };
 		D01AA9C11987E86C009590A1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01AA9C01987E86C009590A1 /* MapKit.framework */; };
 		D01AA9C41987E912009590A1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C31987E912009590A1 /* MapViewController.m */; };
 		D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C6198C7304009590A1 /* AddPostViewController.m */; };
@@ -81,6 +84,11 @@
 		D001F4641981EAFE004611E6 /* ReelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ReelTests-Info.plist"; sourceTree = "<group>"; };
 		D001F4661981EAFE004611E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D001F4681981EAFE004611E6 /* ReelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReelTests.m; sourceTree = "<group>"; };
+		D0073C2F19C906F70025B0B8 /* LogInToAddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInToAddPostViewController.h; sourceTree = "<group>"; };
+		D0073C3019C906F70025B0B8 /* LogInToAddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInToAddPostViewController.m; sourceTree = "<group>"; };
+		D0073C3419C91E390025B0B8 /* ProfileFoldersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileFoldersTableViewController.h; sourceTree = "<group>"; };
+		D0073C3519C91E390025B0B8 /* ProfileFoldersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileFoldersTableViewController.m; sourceTree = "<group>"; };
+		D0073C3719C933770025B0B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D01AA9C01987E86C009590A1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D01AA9C21987E912009590A1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; wrapsLines = 1; };
 		D01AA9C31987E912009590A1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0073C3819C933770025B0B8 /* CoreLocation.framework in Frameworks */,
 				D01AA9C11987E86C009590A1 /* MapKit.framework in Frameworks */,
 				D001F4401981EAFE004611E6 /* CoreGraphics.framework in Frameworks */,
 				D001F4441981EAFE004611E6 /* CoreData.framework in Frameworks */,
@@ -179,6 +188,7 @@
 		D001F43C1981EAFE004611E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0073C3719C933770025B0B8 /* CoreLocation.framework */,
 				D01AA9C01987E86C009590A1 /* MapKit.framework */,
 				D001F43D1981EAFE004611E6 /* Foundation.framework */,
 				D001F43F1981EAFE004611E6 /* CoreGraphics.framework */,
@@ -239,6 +249,45 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D0073C3219C91E000025B0B8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */,
+				D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */,
+				D0BE988519B2BB09000A133C /* ProfileViewController.h */,
+				D0BE988619B2BB09000A133C /* ProfileViewController.m */,
+				D0073C3419C91E390025B0B8 /* ProfileFoldersTableViewController.h */,
+				D0073C3519C91E390025B0B8 /* ProfileFoldersTableViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		D0073C3319C91E0C0025B0B8 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE984119AAFA67000A133C /* UserSignupViewController.h */,
+				D0BE984219AAFA67000A133C /* UserSignupViewController.m */,
+				D0BE987E19AF8B21000A133C /* UserSigninViewController.h */,
+				D0BE987F19AF8B21000A133C /* UserSigninViewController.m */,
+				D0BE988219AF8D2A000A133C /* UserSignInSignUpViewController.h */,
+				D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */,
+			);
+			name = Sessions;
+			sourceTree = "<group>";
+		};
+		D0073C3919CA18CC0025B0B8 /* PostControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D01AA9C21987E912009590A1 /* MapViewController.h */,
+				D01AA9C31987E912009590A1 /* MapViewController.m */,
+				D01AA9C5198C7304009590A1 /* AddPostViewController.h */,
+				D01AA9C6198C7304009590A1 /* AddPostViewController.m */,
+				D0073C2F19C906F70025B0B8 /* LogInToAddPostViewController.h */,
+				D0073C3019C906F70025B0B8 /* LogInToAddPostViewController.m */,
+			);
+			name = PostControllers;
+			sourceTree = "<group>";
+		};
 		D0BE983219A5278A000A133C /* Clients */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,12 +302,9 @@
 		D0BE983319A527A3000A133C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D01AA9C5198C7304009590A1 /* AddPostViewController.h */,
-				D01AA9C6198C7304009590A1 /* AddPostViewController.m */,
+				D0073C3919CA18CC0025B0B8 /* PostControllers */,
 				D0BE982919A13CEF000A133C /* FeedViewController.h */,
 				D0BE982A19A13CEF000A133C /* FeedViewController.m */,
-				D01AA9C21987E912009590A1 /* MapViewController.h */,
-				D01AA9C31987E912009590A1 /* MapViewController.m */,
 				D0BE98A619BD1BC7000A133C /* Sidebar */,
 				D0BE988119AF8D01000A133C /* UserControllers */,
 			);
@@ -268,16 +314,8 @@
 		D0BE988119AF8D01000A133C /* UserControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D0BE984119AAFA67000A133C /* UserSignupViewController.h */,
-				D0BE984219AAFA67000A133C /* UserSignupViewController.m */,
-				D0BE987E19AF8B21000A133C /* UserSigninViewController.h */,
-				D0BE987F19AF8B21000A133C /* UserSigninViewController.m */,
-				D0BE988219AF8D2A000A133C /* UserSignInSignUpViewController.h */,
-				D0BE988319AF8D2A000A133C /* UserSignInSignUpViewController.m */,
-				D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */,
-				D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */,
-				D0BE988519B2BB09000A133C /* ProfileViewController.h */,
-				D0BE988619B2BB09000A133C /* ProfileViewController.m */,
+				D0073C3319C91E0C0025B0B8 /* Sessions */,
+				D0073C3219C91E000025B0B8 /* Profile */,
 			);
 			name = UserControllers;
 			sourceTree = "<group>";
@@ -519,10 +557,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0073C3119C906F70025B0B8 /* LogInToAddPostViewController.m in Sources */,
 				D0BE98A919BD2CF6000A133C /* EditInfoViewController.m in Sources */,
 				D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */,
 				D001F4501981EAFE004611E6 /* AppDelegate.m in Sources */,
 				D001F44C1981EAFE004611E6 /* main.m in Sources */,
+				D0073C3619C91E390025B0B8 /* ProfileFoldersTableViewController.m in Sources */,
 				D0BE988419AF8D2A000A133C /* UserSignInSignUpViewController.m in Sources */,
 				D001F4531981EAFE004611E6 /* Reel.xcdatamodeld in Sources */,
 				D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "ReelRailsAFNClient.h"
+#import "UserSession.h"
 #import "UserSigninViewController.h"
 
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -49,12 +50,22 @@
 - (IBAction)signInButtonTouchUpInside:(id)sender
 {
     [SVProgressHUD show];
+    [UserSession sharedSession];
+    
     [[ReelRailsAFNClient sharedClient] createSessionWithParameters:@{@"email":_emailTextField.text,
                                                                      @"password":_passwordTextField.text}
-                                                   CompletionBlock:^(NSError *error){
-                                                       [self segueToProfile];
-                                                       [SVProgressHUD dismiss];
-                                                   }];
+        CompletionBlock:^(NSError *error){
+            [[UserSession sharedSession] updateUserFoldersWithArray:
+                [[ReelRailsAFNClient sharedClient] getFoldersForUserWithId:@{@"userId":[[UserSession sharedSession] userId]}
+                    CompletionBlock:^(NSError *error) {
+                        [[UserSession sharedSession] updateUserPostsWithArray:
+                            [[ReelRailsAFNClient sharedClient] getPostsForUserWithId:@{@"userId":[[UserSession sharedSession] userId]}
+                                CompletionBlock:^(NSError *error) {
+                                    [self segueToProfile];
+                                        [SVProgressHUD dismiss];
+                                }]];
+                    }]];
+        }];
 }
 
 -(void)segueToProfile
@@ -71,6 +82,9 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
+}
+- (IBAction)editingEnded:(id)sender {
+    [sender resignFirstResponder];
 }
 
 

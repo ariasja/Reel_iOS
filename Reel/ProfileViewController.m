@@ -21,21 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *bioTextView;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *reelsOrAllSegmentedControl;
-
-@property (strong, nonatomic) NSMutableArray *postArray;
-@property (strong, nonatomic) NSMutableArray *folderArray;
 @end
 
 @implementation ProfileViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -47,11 +35,16 @@
     UIBarButtonItem *editInfoButton =
     [[UIBarButtonItem alloc] initWithTitle:@"Edit Info" style:UIBarButtonItemStylePlain target:self action:@selector(editInfoButtonPressed)];
     [[self navigationItem] setRightBarButtonItem:editInfoButton];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Profile"
+                                      style:UIBarButtonItemStyleBordered
+                                     target:nil
+                                     action:nil];
+    
+    [_reelsOrAllSegmentedControl addTarget:self
+                                    action:@selector(segmentedControlTouched)
+               forControlEvents:UIControlEventValueChanged];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -71,48 +64,31 @@
     
     NSLog(@"%@", [[UserSession sharedSession] userBio]);
     NSString *userBio = [[UserSession sharedSession] userBio] ? [[UserSession sharedSession] userBio] : @"";
-    [_bioTextView setText:userBio];
-}
-
-
--(void)getPosts
-{
-    NSMutableArray* postsArray = [[NSMutableArray alloc] init];
-    [[ReelRailsAFNClient sharedClient] getPostsForUserWithId:[[UserSession sharedSession] userId]
-                                                   PostArray:postsArray
-                                             CompletionBlock:^(NSError *error){
-                                                 NSLog(@"%@", postsArray);
-                                             }];
-     [self setPostArray:postsArray];
-}
-
--(NSMutableArray*)getFolders
-{
-    NSDictionary* parameters = @{ @"user_id":[[UserSession sharedSession] userId]};
-    return [[ReelRailsAFNClient sharedClient] getFoldersForUserWithId:parameters
-                                               CompletionBlock:^(NSError *error){
-                                               }];
+    [_bioTextView setText:userBio ? userBio : @""];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier0 = @"profileFolderTableCell";
-    static NSString *CellIdentifier1 = @"profileTableCell";
+    NSString *CellIdentifier0 = @"profileFolderTableCell";
+    NSString *CellIdentifier1 = @"profileTableCell";
     
     long row = [indexPath row];
     // Configure the cell...
-    if([_reelsOrAllSegmentedControl isEnabledForSegmentAtIndex:0])
+    if(_reelsOrAllSegmentedControl.selectedSegmentIndex == 0)
     {
         ProfileFolderTableViewCell *cell = [tableView
                                             dequeueReusableCellWithIdentifier:CellIdentifier0
                                             forIndexPath:indexPath];
-        cell.titleTextView.text = _folderArray[row][@"title"];
+        NSArray *folderArray = [[NSArray alloc] initWithArray:[[UserSession sharedSession] userFolders]];
+        cell.titleTextView.text = folderArray[row][@"title"];
+        cell.folderId = folderArray[row][@"id"];
         return cell;
-    } else if([_reelsOrAllSegmentedControl isEnabledForSegmentAtIndex:1]){
+    } else if(_reelsOrAllSegmentedControl.selectedSegmentIndex == 1){
         ProfileTableViewCell *cell = [tableView
                                       dequeueReusableCellWithIdentifier:CellIdentifier1
                                       forIndexPath:indexPath];
-        cell.captionTextView.text = _postArray[row][@"caption"];
+        NSArray *postArray = [[NSArray alloc] initWithArray:[[UserSession sharedSession] userPosts]];
+        cell.captionTextView.text = postArray[row][@"caption"];
         return cell;
     }
     
@@ -127,19 +103,24 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows = 0;
-    [self getPosts];
-    [self setFolderArray:[self getFolders]];
-    if([_reelsOrAllSegmentedControl isEnabledForSegmentAtIndex:0])
+    if(_reelsOrAllSegmentedControl.selectedSegmentIndex == 0)
     {
-        numberOfRows = [[self folderArray] count];
-    } else if([_reelsOrAllSegmentedControl isEnabledForSegmentAtIndex:1]){
-        numberOfRows = [[self postArray] count];
+        numberOfRows = [[[UserSession sharedSession] userFolders] count];
+    } else if(_reelsOrAllSegmentedControl.selectedSegmentIndex == 1){
+        numberOfRows = [[[UserSession sharedSession] userPosts] count];
     }
     NSLog(@"%li", (long)numberOfRows);
     return numberOfRows;
 }
 
+///////// Segmented Control /////////
 
+-(void)segmentedControlTouched
+{
+    NSLog(@"touch");
+    [self.tableView reloadData];
+
+}
 ///////// Sign Out /////////
 -(void)signOutButtonPressed
 {

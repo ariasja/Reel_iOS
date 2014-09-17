@@ -17,22 +17,6 @@
 
 @implementation UserSession{}
 
-- (id) init {
-    self = [super init];
-    if (!self)
-        return nil;
-    return self;
-}
-
--(void)updateUserForUserSessionWithParams:(NSDictionary *)params
-{
-    [self setUserId:params[@"userId"]];
-    [self setUserName:params[@"userName"]];
-    [self setUserUsername:params[@"userUsername"]];
-    [self setUserEmail:params[@"userEmail"]];
-    [self setUserBio:params[@"userBio"]];
-}
-
 + (instancetype)sharedSession
 {
     static UserSession *_session;

@@ -11,5 +11,6 @@
 @interface ProfileFolderTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UITextView *titleTextView;
+@property (strong, nonatomic) NSNumber *folderId;
 
 @end

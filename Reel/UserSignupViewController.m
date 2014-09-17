@@ -40,25 +40,47 @@
 
 - (IBAction)signUpButtonTouchUpInside:(id)sender {
     
-    NSLog(@"[UserSignupViewController signUpButtonTouchUpInside] (1)");
     [SVProgressHUD show];
     
     NSDictionary *userParams = @{@"name":_nameTextField.text,
                                     @"username":_usernameTextField.text,
                                     @"email": _emailTextField.text,
-                                    @"bio":@"",
+                                    @"bio":@" ",
                                     @"password": _passwordTextField.text,
                                     @"password_confirmation": _passwordConfirmationTextField.text};
     [[ReelRailsAFNClient sharedClient]
      createCurrentUserWithParameters:userParams
                      CompletionBlock:^(NSError *error){
-                         [[ReelRailsAFNClient sharedClient]
-                          createSessionWithParameters:@{@"email":_emailTextField.text,
-                                                        @"password":_passwordTextField.text}
-                          CompletionBlock:^(NSError *error){
-                              [self segueToProfile];
-                              [SVProgressHUD dismiss];
+                         if([[ReelRailsAFNClient sharedClient] userCreateSuccess]){
+                             [[ReelRailsAFNClient sharedClient]
+                              createSessionWithParameters:@{@"email":_emailTextField.text,
+                                                            @"password":_passwordTextField.text}
+                              CompletionBlock:^(NSError *error){
+                                  if([[ReelRailsAFNClient sharedClient] sessionCreateSuccess]){
+                                      [[UserSession sharedSession] updateUserFoldersWithArray:(NSMutableArray*)@[]];
+                                      [[UserSession sharedSession] updateUserPostsWithArray:(NSMutableArray*)@[]];
+                                      [self segueToProfile];
+                                      [SVProgressHUD dismiss];
+                                  }else{
+                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Session Create Unsuccessful"
+                                                                                      message:@""
+                                                                                     delegate:nil
+                                                                            cancelButtonTitle:@"OK"
+                                                                            otherButtonTitles:nil];
+                                      [SVProgressHUD dismiss];
+                                      [alert show];
+                                  }
+                                  
                           }];
+                         } else {
+                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User Create Unsuccessful"
+                                                                             message:@""
+                                                                            delegate:nil
+                                                                   cancelButtonTitle:@"OK"
+                                                                   otherButtonTitles:nil];
+                             [SVProgressHUD dismiss];
+                             [alert show];
+                         }
                      }];
     
 
@@ -66,18 +88,7 @@
 
 -(void)segueToProfile
 {
-    if([[ReelRailsAFNClient sharedClient] sessionCreateSuccess])
-    {
-        [self performSegueWithIdentifier:@"SignUpButtonPressedToProfileSegue" sender:self];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"SignUp Unsuccessful"
-                                                        message:@""
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
+    [self performSegueWithIdentifier:@"SignUpButtonPressedToProfileSegue" sender:self];
 }
 
 

@@ -15,8 +15,13 @@
 @property (strong, nonatomic) NSString *userUsername;
 @property (strong, nonatomic) NSString *userEmail;
 @property (strong, nonatomic) NSString *userBio;
+@property (strong, nonatomic) NSMutableArray *userFolders;
+@property (strong, nonatomic) NSMutableArray *userPosts;
 
 //methods
 - (id)initWithJSON:(NSDictionary *)JSONDictionary;
+-(void)updateUserForUserSessionWithParams:(NSDictionary *)params;
+-(void)updateUserFoldersWithArray:(NSMutableArray*)folderArray;
+-(void)updateUserPostsWithArray:(NSMutableArray*)postArray;
 
 @end

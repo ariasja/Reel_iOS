@@ -23,9 +23,11 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
 - (void) createCurrentUserWithParameters:(NSDictionary*)parameters
                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
 {
+    [self setUserCreateSuccess:NO];
     [self POST:@"users" parameters:parameters
        success:^(NSURLSessionDataTask *task, id responseObject) {
            NSLog(@"User Created Sucessfully");
+           [self setUserCreateSuccess:YES];
            [self.requestSerializer setValue:responseObject[@"device_token"] forHTTPHeaderField:@"X-DEVICE-TOKEN"];
            NSLog(@"%@", responseObject[@"id"]);
            NSLog(@"%@", responseObject[@"name"]);
@@ -40,6 +42,7 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
            block(nil);
        } failure:^(NSURLSessionDataTask *task, NSError *error) {
            NSLog(@"User Not Created");
+           [self setUserCreateSuccess:NO];
            block(error);
        }];
 }
@@ -143,25 +146,47 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
        }];
 }
 
-- (void) getPostsForUserWithId:(NSNumber*)userId
-                     PostArray:(NSMutableArray*)postArray
+- (NSMutableArray*) getPostsForUserWithId:(NSDictionary*)parameters
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
 {
+    NSMutableArray *returnArray = [[NSMutableArray alloc] initWithArray:@[]];
     //build path string
     NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
-    [pathString appendString:[userId stringValue]];
+    [pathString appendString:[parameters[@"userId"] stringValue]];
     [pathString appendString:@"/posts"];
     //send request to API
     [self GET:pathString parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSLog(@"GET Posts Successful");
           NSLog(@"%@", [responseObject class]);
-          [postArray setArray:responseObject];
+          [returnArray setArray:responseObject];
+           block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"GET Posts Unsuccessful");
+          block(error);
+      }];
+    return returnArray;
+}
+
+- (NSMutableArray*) getPostsForFolderWithId:(NSDictionary*)parameters
+                            CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    NSMutableArray *returnArray = [[NSMutableArray alloc] initWithArray:@[]];
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"folders/"];
+    [pathString appendString:[parameters[@"folderId"] stringValue]];
+    [pathString appendString:@"/posts"];
+    [self GET:pathString parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"GET Posts Successful");
+          NSLog(@"%@", [responseObject class]);
+          [returnArray setArray:responseObject];
           block(nil);
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
           NSLog(@"GET Posts Unsuccessful");
           block(error);
       }];
+    return returnArray;
+
 }
 
 ////////////////////////////////////
@@ -183,23 +208,23 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
 -(NSMutableArray*)getFoldersForUserWithId:(NSDictionary*)parameters
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
 {
-    NSMutableArray* folderArray = [[NSMutableArray alloc] init];
+    NSMutableArray *returnArray = [[NSMutableArray alloc] initWithArray:@[]];
     NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
-    [pathString appendString:[parameters[@"user_id"] stringValue]];
+    [pathString appendString:[parameters[@"userId"] stringValue]];
     [pathString appendString:@"/folders"];
-    [self GET:@"folders" parameters:parameters
+    [self GET:pathString parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSLog(@"GET Folders Successful");
-          [folderArray setArray:responseObject];
-          NSLog(@"%@", folderArray);
+          NSLog(@"%@", responseObject);
+          [returnArray setArray:responseObject];
           block(nil);
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
           NSLog(@"GET Folders Unsuccessful");
-          [folderArray setArray:@[]];
           block(error);
       }];
-    return folderArray;
+    return returnArray;
 }
+
 
 
 ////////////////////////////////////

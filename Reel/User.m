@@ -31,5 +31,23 @@
     return self;
 }
 
+-(void)updateUserForUserSessionWithParams:(NSDictionary *)params
+{
+    [self setUserId:params[@"userId"]];
+    [self setUserName:params[@"userName"]];
+    [self setUserUsername:params[@"userUsername"]];
+    [self setUserEmail:params[@"userEmail"]];
+    [self setUserBio:params[@"userBio"]];
+}
+
+-(void)updateUserFoldersWithArray:(NSMutableArray*)folderArray
+{
+    [self setUserFolders:folderArray];
+}
+
+-(void)updateUserPostsWithArray:(NSMutableArray*)postArray
+{
+    [self setUserPosts:postArray];
+}
 
 @end

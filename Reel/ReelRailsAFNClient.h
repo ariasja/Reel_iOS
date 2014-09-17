@@ -7,14 +7,16 @@
 //
 
 #import "AFHTTPSessionManager.h"
+#import "ProfileViewController.h"
 
 typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 
 @interface ReelRailsAFNClient : AFHTTPSessionManager
 
+@property(nonatomic) BOOL userCreateSuccess;
+@property(nonatomic) BOOL userUpdateSuccess;
 @property(nonatomic) BOOL sessionCreateSuccess;
 @property(nonatomic) BOOL sessionDestroySuccess;
-@property(nonatomic) BOOL userUpdateSuccess;
 
 @property(strong, nonatomic) NSMutableDictionary* userPosts;
 
@@ -32,9 +34,10 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 //Post
 - (void) createPostWithParameters:(NSDictionary*)parameters
                   CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
-- (void) getPostsForUserWithId:(NSNumber*)userId
-                     PostArray:(NSMutableArray*)postArray
+- (NSMutableArray*) getPostsForUserWithId:(NSDictionary*)parameters
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (NSMutableArray*) getPostsForFolderWithId:(NSDictionary*)parameters
+                            CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 
 //Folder
 -(void)createFolderWithParameters:(NSDictionary*)parameters

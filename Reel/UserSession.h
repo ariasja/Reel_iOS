@@ -15,7 +15,6 @@
 
 @property (nonatomic) BOOL sessionActive;
 
--(void)updateUserForUserSessionWithParams:(NSDictionary *)params;
 +(instancetype)sharedSession;
 
 @end
