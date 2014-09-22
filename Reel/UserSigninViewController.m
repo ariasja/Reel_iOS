@@ -72,7 +72,7 @@
 {
     if([[ReelRailsAFNClient sharedClient] sessionCreateSuccess])
     {
-        [self performSegueWithIdentifier:@"SignInButtonPressedToProfileSegue" sender:self];
+        [self dismissViewControllerAnimated:YES completion:^(void){}];
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Unsuccessful"

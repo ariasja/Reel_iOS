@@ -34,6 +34,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self roundCornersOfButton:_signInButton];
+    [self roundCornersOfButton:_signUpButton];
+}
+
+-(void)roundCornersOfButton:(UIButton*)button{
+    button.layer.cornerRadius = 20; // this value vary as per your desire
+    button.clipsToBounds = YES;
 }
 
 - (void) viewDidAppear:(BOOL)animated

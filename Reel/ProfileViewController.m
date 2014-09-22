@@ -49,9 +49,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [self.navigationItem setHidesBackButton:YES];
-    [self setUpProfile];
+        [super viewWillAppear:animated];
+        [self.navigationItem setHidesBackButton:YES];
+        [self setUpProfile];
 }
 
 ///////// Profile Info /////////
@@ -126,15 +126,15 @@
 {
     [SVProgressHUD show];
     [[ReelRailsAFNClient sharedClient] destroySessionWithCompletionBlock:^(NSError *error) {
-        [self segueToSignInSignOutViewController];
+        [self dismissViewControllerAnimated:YES completion:^(void){}];
         [SVProgressHUD dismiss];
     }];
 }
 
--(void)segueToSignInSignOutViewController
+-(void)segueToLogInPage
 {
     if([[ReelRailsAFNClient sharedClient] sessionDestroySuccess]){
-        [self performSegueWithIdentifier:@"SignOutSegue" sender:self];
+        [self performSegueWithIdentifier:@"logOutSegue" sender:self];
     } else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Session not Destroyed"
                                                         message:@""
