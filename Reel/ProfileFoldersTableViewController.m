@@ -7,47 +7,47 @@
 //
 
 #import "ProfileFoldersTableViewController.h"
-#import "ProfileTableViewCell.h"
+#import "PostTableViewCell.h"
 #import "UserSession.h"
 #import "ReelRailsAFNClient.h"
 
+#import <SVProgressHUD/SVProgressHUD.h>
+
 @interface ProfileFoldersTableViewController ()
-@property (strong, nonatomic) NSMutableArray* folderPosts;
-@property (strong, nonatomic) NSNumber* folderId;
 @end
 
 @implementation ProfileFoldersTableViewController
 
--(instancetype)initWIthFolderId:folderId
+-(void)viewDidLoad
 {
-    self = [super init];
-    if(!self)
-        return nil;
-    [self setFolderId:folderId];
-    [self setFolderPosts:[[NSMutableArray alloc] init]];
-    return self;
+    [super viewDidLoad];
+    [SVProgressHUD show];
+    [self setFolderPosts:[[ReelRailsAFNClient sharedClient] getPostsForFolderWithId:@{@"folder_id":_folderId}
+                                                                  CompletionBlock:^(NSError *error) {
+                                                                      [[self tableView] reloadData];
+                                                                      [SVProgressHUD dismiss];
+
+                                                                  }]];
+    [[self folderLabelTextView] setText:_folderTitle];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _folderPosts = [[ReelRailsAFNClient sharedClient] getPostsForFolderWithId:@{@"folderId": _folderId}
-                                                              CompletionBlock:^(NSError *error) {
-                                                                  //code
-                                                              }];
+    NSLog(@"%@", _folderId);
+    NSLog(@"%@", _folderPosts);
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* cellIdentifier = @"profileTableCell";
+    NSLog(@"%@", _folderPosts);
+    NSString* cellIdentifier = @"postTableCell";
     long row = [indexPath row];
-    ProfileTableViewCell *cell = [tableView
+    PostTableViewCell *cell = [tableView
                                   dequeueReusableCellWithIdentifier:cellIdentifier
                                   forIndexPath:indexPath];
-    NSArray *postArray = [[NSArray alloc] initWithArray:_folderPosts];
-    cell.captionTextView.text = postArray[row][@"caption"];
+    NSString *caption = _folderPosts[row][@"caption"];
+    [cell.captionTextView setText:caption];
     return cell;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -59,17 +59,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows = 0;
+    numberOfRows = [_folderPosts count];
     NSLog(@"%li", (long)numberOfRows);
     return numberOfRows;
 }
 
-///////// Segmented Control /////////
-
--(void)segmentedControlTouched
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"touch");
-    [self.tableView reloadData];
-    
+    return 79.0f;
 }
 
 

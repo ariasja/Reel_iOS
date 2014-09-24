@@ -7,8 +7,9 @@
 //
 
 #import "ProfileViewController.h"
-#import "ProfileTableViewCell.h"
-#import "ProfileFolderTableViewCell.h"
+#import "PostTableViewCell.h"
+#import "FolderTableViewCell.h"
+#import "ProfileFoldersTableViewController.h"
 #import "ReelRailsAFNClient.h"
 #import "SWRevealViewController.h"
 #import "UserSession.h"
@@ -58,10 +59,10 @@
 -(void)setUpProfile
 {
     [_nameTextView setText:[[UserSession sharedSession] userName]];
+    NSString *userUsername = [[UserSession sharedSession] userUsername];
     NSMutableString *usernameString = [[NSMutableString alloc] initWithString:@"@"];
-    [usernameString appendString:[[UserSession sharedSession] userUsername]];
+    [usernameString appendString:userUsername];
     [_usernameTextView setText:usernameString];
-    
     NSLog(@"%@", [[UserSession sharedSession] userBio]);
     NSString *userBio = [[UserSession sharedSession] userBio] ? [[UserSession sharedSession] userBio] : @"";
     [_bioTextView setText:userBio ? userBio : @""];
@@ -76,15 +77,15 @@
     // Configure the cell...
     if(_reelsOrAllSegmentedControl.selectedSegmentIndex == 0)
     {
-        ProfileFolderTableViewCell *cell = [tableView
+        FolderTableViewCell *cell = [tableView
                                             dequeueReusableCellWithIdentifier:CellIdentifier0
                                             forIndexPath:indexPath];
         NSArray *folderArray = [[NSArray alloc] initWithArray:[[UserSession sharedSession] userFolders]];
-        cell.titleTextView.text = folderArray[row][@"title"];
+        [cell.titleButton setTitle:folderArray[row][@"title"] forState:UIControlStateNormal];
         cell.folderId = folderArray[row][@"id"];
         return cell;
     } else if(_reelsOrAllSegmentedControl.selectedSegmentIndex == 1){
-        ProfileTableViewCell *cell = [tableView
+        PostTableViewCell *cell = [tableView
                                       dequeueReusableCellWithIdentifier:CellIdentifier1
                                       forIndexPath:indexPath];
         NSArray *postArray = [[NSArray alloc] initWithArray:[[UserSession sharedSession] userPosts]];
@@ -151,6 +152,28 @@
     [self performSegueWithIdentifier:@"EditInfoSegue" sender:self];
 }
 
+///////// Segue /////////
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"segueToFolderPosts"])
+    {
+        // Get reference to the destination view controller
+        ProfileFoldersTableViewController *vc = [segue destinationViewController];
+        FolderTableViewCell* cell = (FolderTableViewCell*)[[sender superview] superview];
+        NSLog(@"%@", [cell class]);
+        
+        // Pass any objects to the view controller here, like...
+        NSNumber *folderId = [cell folderId];
+        NSString *folderTitle = [[cell titleButton] titleForState:UIControlStateNormal];
+        [vc setFolderId:folderId];
+        [vc setFolderTitle:folderTitle];
+    }
+}
+- (IBAction)titleButtonTouchUpInside:(id)sender {
+    NSLog(@"%@", [sender class]);
+    [self performSegueWithIdentifier:@"segueToFolderPosts" sender:sender];
+}
 
 
 @end

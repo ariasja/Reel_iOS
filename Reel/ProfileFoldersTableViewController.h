@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileFoldersTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UITextView *folderLabelTextView;
+@property (strong, nonatomic) NSString* folderTitle;
+@property (strong, nonatomic) NSNumber* folderId;
+@property (strong, nonatomic) NSMutableArray* folderPosts;
 
 @end

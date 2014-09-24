@@ -11,5 +11,6 @@
 
 
 @interface AddPostViewController : UITableViewController <CLLocationManagerDelegate>
-
+-(void)reformatAddToReelButtonForFolderWithTitle:(NSString*)title
+                                        folderId:(NSNumber*)folderId;
 @end

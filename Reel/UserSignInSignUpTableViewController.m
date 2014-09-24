@@ -9,14 +9,18 @@
 #import "ReelRailsAFNClient.h"
 #import "SignInTableViewCell.h"
 #import "SignUpTableViewCell.h"
+#import "UIColor+ColorExtensions.h"
 #import "UserSession.h"
 #import "UserSignInSignUpTableViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 
 
 
 @interface UserSignInSignUpTableViewController () <UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *reelTextView;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *signInSignUpSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *signInTableViewCell;
@@ -41,6 +45,11 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [_reelTextView.layer setCornerRadius:20.0f];
+    //[_reelTextView setTransform:CGAffineTransformMakeRotation(90* M_PI/180)];
+    //[self.tableView setBackgroundView:nil];
+    //[self.tableView setBackgroundView:[[UIView alloc] init]];
+    //[self.tableView setBackgroundColor:[UIColor tealColor]];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -54,13 +63,13 @@
     NSLog(@"%@", indexPath);
     switch (indexPath.row) {
         case 0:
-            return 58.0f;
+            return 165.0f;
             break;
         case 1:
             return 100.0f;
             break;
         case 2:
-            return 38.0f;
+            return 16.0f;
             break;
         case 3:
             if([self signInSelected]){
@@ -89,7 +98,14 @@
                 return 0.0f;
             }
         case 5:
-            return 100.0f;
+            if([self signUpSelected]){
+                return 0.0f;
+            }else{
+                return 120.0f;
+            }
+            break;
+        case 6:
+            return 118.0f;
             break;
         default:
             return 0.0f;
@@ -131,16 +147,28 @@
     [[ReelRailsAFNClient sharedClient] createSessionWithParameters:@{@"email":_signInEmailTextField.text,
                                                                      @"password":_signInPasswordTextField.text}
                                                    CompletionBlock:^(NSError *error){
+                                                       if([[UserSession sharedSession] sessionActive]){
                                                        [[UserSession sharedSession] updateUserFoldersWithArray:
-                                                        [[ReelRailsAFNClient sharedClient] getFoldersForUserWithId:@{@"userId":[[UserSession sharedSession] userId]}
-                                                                                                   CompletionBlock:^(NSError *error) {
-                                                                                                       [[UserSession sharedSession] updateUserPostsWithArray:
-                                                                                                        [[ReelRailsAFNClient sharedClient] getPostsForUserWithId:@{@"userId":[[UserSession sharedSession] userId]}
-                                                                                                                                                 CompletionBlock:^(NSError *error) {
-                                                                                                                                                     [self segueToApp];
-                                                                                                                                                     [SVProgressHUD dismiss];
-                                                                                                                                                 }]];
-                                                                                                   }]];
+                                                        [[ReelRailsAFNClient sharedClient]
+                                                         getFoldersForUserWithId:@{@"userId":[[UserSession sharedSession] userId]}
+                                                                             CompletionBlock:^(NSError *error) {
+                                                                                    [[UserSession sharedSession]
+                                                                                     updateUserPostsWithArray:
+                                                                                        [[ReelRailsAFNClient sharedClient] getPostsForUserWithId:@{@"userId":[[UserSession sharedSession] userId]}
+                                                                                        CompletionBlock:^(NSError *error) {
+                                                                                            [self segueToApp];
+                                                                                            [SVProgressHUD dismiss];
+                                                                                        }]];
+                                                                            }]];
+                                                       }else{
+                                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Session Not Created"
+                                                                                                           message:@""
+                                                                                                          delegate:nil
+                                                                                                 cancelButtonTitle:@"OK"
+                                                                                                 otherButtonTitles:nil];
+                                                           [alert show];
+                                                           [SVProgressHUD dismiss];
+                                                       }
                                                    }];
 }
 
@@ -193,6 +221,10 @@
 -(void)segueToApp
 {
     [self performSegueWithIdentifier:@"SignInSignUpSegue" sender:self];
+}
+
+-(IBAction)editingEnded:(id)sender{
+    [sender resignFirstResponder];
 }
 
 @end

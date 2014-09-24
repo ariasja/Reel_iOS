@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Jason Arias. All rights reserved.
 //
 
-#import "ProfileTableViewCell.h"
+#import "PostTableViewCell.h"
 
-@interface ProfileTableViewCell()
-
+@interface PostTableViewCell()
+@property (strong, nonatomic) NSNumber* folderId;
 @end
 
-@implementation ProfileTableViewCell
+@implementation PostTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

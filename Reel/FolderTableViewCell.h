@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileFolderTableViewCell : UITableViewCell
+@interface FolderTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextView *titleTextView;
+@property (weak, nonatomic) IBOutlet UIButton *titleButton;
 @property (strong, nonatomic) NSNumber *folderId;
 
 @end

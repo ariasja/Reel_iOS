@@ -121,8 +121,8 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
                                                                                @"userUsername":@"",
                                                                                @"userEmail":@"",
                                                                                @"userBio":@""}];
-             [self setSessionDestroySuccess:YES];
-             block(nil);
+             [self resetSuccessProperties];
+              block(nil);
          }
      failure:^(NSURLSessionDataTask *task, NSError *error) {
          NSLog(@"Session Not Deleted");
@@ -139,6 +139,14 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
     [self POST:@"posts" parameters:parameters
        success:^(NSURLSessionDataTask *task, id responseObject){
            NSLog(@"Post Created Successfully");
+           NSMutableArray* postsArray = [[UserSession sharedSession] userPosts];
+           if([postsArray count] == 0){
+               postsArray = [[NSMutableArray alloc] init];
+               [postsArray addObject:responseObject];
+           }else{
+               [postsArray insertObject:responseObject atIndex:0];
+           }
+           [[UserSession sharedSession] updateUserPostsWithArray:postsArray];
            block(nil);
        }failure:^(NSURLSessionDataTask *task, NSError *error) {
            NSLog(@"Post Not Created");
@@ -173,7 +181,7 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
 {
     NSMutableArray *returnArray = [[NSMutableArray alloc] initWithArray:@[]];
     NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"folders/"];
-    [pathString appendString:[parameters[@"folderId"] stringValue]];
+    [pathString appendString:[parameters[@"folder_id"] stringValue]];
     [pathString appendString:@"/posts"];
     [self GET:pathString parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -183,6 +191,7 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
           block(nil);
       } failure:^(NSURLSessionDataTask *task, NSError *error) {
           NSLog(@"GET Posts Unsuccessful");
+          NSLog(@"%@", [error localizedDescription]);
           block(error);
       }];
     return returnArray;
@@ -198,9 +207,19 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
     [self POST:@"folders" parameters:parameters
         success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"POST Folders Successful");
+            NSLog(@"%@", responseObject);
+            NSMutableArray* foldersArray = [[UserSession sharedSession] userFolders];
+            if([foldersArray count] == 0){
+                foldersArray = [[NSMutableArray alloc] init];
+                [foldersArray addObject:responseObject];
+            }else{
+                [foldersArray insertObject:responseObject atIndex:0];
+            }
+            [[UserSession sharedSession] updateUserFoldersWithArray:foldersArray];
             block(nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"POST Folders Unsuccessful");
+            NSLog(@"%@", error);
             block(error);
         }];
 }
@@ -250,6 +269,13 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
         }
     });
     return _sharedClient;
+}
+
+-(void)resetSuccessProperties
+{
+    [self setUserCreateSuccess:NO];
+    [self setUserUpdateSuccess:NO];
+    [self setSessionCreateSuccess:NO];
 }
 
 @end

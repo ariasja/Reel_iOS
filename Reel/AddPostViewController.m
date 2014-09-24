@@ -23,10 +23,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 @property (weak, nonatomic) IBOutlet UITextField *hashTagTextField;
 @property (weak, nonatomic) IBOutlet UITextField *atTagTextField;
-@property (weak, nonatomic) IBOutlet UITextField *folderTextField;
 
 @property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *addToReelButton;
+@property (strong, nonatomic) NSNumber *folderId;
+
 
 @end
 
@@ -34,15 +35,39 @@
 @implementation AddPostViewController{
     CLLocationManager *locationManager;
 }
-
+@synthesize folderId;
 
 //viewDidLoad
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
+    [self formatAddToReelButton];
+    [self formatTextField:_captionTextField];
+    [self formatTextField:_atTagTextField];
+    [self formatTextField:_hashTagTextField];
+}
+
+-(void)formatAddToReelButton
+{
     [[_addToReelButton layer] setBorderWidth:1.2f];
     [[_addToReelButton layer] setBorderColor:[UIColor tealColor].CGColor];
+    [[_addToReelButton layer] setCornerRadius:10.0f];
+}
+
+-(void)formatTextField:(UITextField*)textField
+{
+    [textField.layer setCornerRadius:10.0f];
+    [textField.layer setMasksToBounds:YES];
+    [textField.layer setBorderColor:[[UIColor tealColor]CGColor]];
+    [textField.layer setBorderWidth:1.2f];
+}
+
+-(void)reformatAddToReelButtonForFolderWithTitle:(NSString*)title
+                                        folderId:(NSNumber*)fId
+{
+    [_addToReelButton setTitle:title forState:UIControlStateNormal];
+    [self setFolderId:fId];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -53,7 +78,8 @@
     }
 }
 
-- (IBAction)addButtonTouchUpInside:(id)sender {
+- (IBAction)addButtonTouchUpInside:(id)sender
+{
     [SVProgressHUD show];
     
     if([_locationSwitch isOn]){
@@ -63,11 +89,11 @@
         [locationManager startUpdatingLocation];
         
     }else{
-        [[ReelRailsAFNClient sharedClient] createPostWithParameters:@{@"user_id":[[UserSession sharedSession] sessionActive]
-                                                                      ? [[[UserSession sharedSession] userId] stringValue] : @"",
+        [[ReelRailsAFNClient sharedClient] createPostWithParameters:@{@"user_id":[[[UserSession sharedSession] userId] stringValue],
                                                                       @"caption":_captionTextField.text,
                                                                       @"hashTag":_hashTagTextField.text,
-                                                                      @"atTag":_atTagTextField.text}
+                                                                      @"atTag":_atTagTextField.text,
+                                                                      @"folder_id":folderId ? folderId : @""}
                                                     CompletionBlock:^(NSError *error) {
                                                         [SVProgressHUD dismiss];
                                                         [self clearTextFields];
@@ -80,7 +106,9 @@
     [_captionTextField setText:@""];
     [_hashTagTextField setText:@""];
     [_atTagTextField setText:@""];
-    [_folderTextField setText:@""];
+    [self reformatAddToReelButtonForFolderWithTitle:@" add to a reel                                        >"
+                                           folderId:nil];
+    [_locationSwitch setOn:NO animated:YES];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -108,7 +136,8 @@
                                                                   @"hashTag":_hashTagTextField.text,
                                                                     @"atTag":_atTagTextField.text,
                                                                   @"geo_lat":longitude,
-                                                                 @"geo_long":latitude}
+                                                                 @"geo_long":latitude,
+                                                                  @"folder_id":folderId ? folderId : @""}
                                                 CompletionBlock:^(NSError *error) {
                                                     [SVProgressHUD dismiss];
                                                     [self clearTextFields];

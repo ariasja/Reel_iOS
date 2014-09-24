@@ -31,6 +31,8 @@
 		D01AA9C11987E86C009590A1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01AA9C01987E86C009590A1 /* MapKit.framework */; };
 		D01AA9C41987E912009590A1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C31987E912009590A1 /* MapViewController.m */; };
 		D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01AA9C6198C7304009590A1 /* AddPostViewController.m */; };
+		D0B928E219CFF88B00905EA8 /* FoldersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B928E119CFF88B00905EA8 /* FoldersTableViewController.m */; };
+		D0B928E519D20CDE00905EA8 /* AddFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B928E419D20CDE00905EA8 /* AddFolderViewController.m */; };
 		D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */; };
 		D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE982A19A13CEF000A133C /* FeedViewController.m */; };
 		D0BE982E19A51CE0000A133C /* ReelRailsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE982D19A51CE0000A133C /* ReelRailsClient.m */; };
@@ -45,8 +47,8 @@
 		D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A119BD1580000A133C /* SWRevealViewController.m */; };
 		D0BE98A519BD158C000A133C /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A419BD158C000A133C /* SidebarViewController.m */; };
 		D0BE98A919BD2CF6000A133C /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */; };
-		D0BE98AC19BE9E76000A133C /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98AB19BE9E76000A133C /* ProfileTableViewCell.m */; };
-		D0BE98B019C7878C000A133C /* ProfileFolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98AF19C7878C000A133C /* ProfileFolderTableViewCell.m */; };
+		D0BE98AC19BE9E76000A133C /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98AB19BE9E76000A133C /* PostTableViewCell.m */; };
+		D0BE98B019C7878C000A133C /* FolderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BE98AF19C7878C000A133C /* FolderTableViewCell.m */; };
 		E487CA1B72414492B0C98DD5 /* libPods-ReelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE831F0D04A4453AFF566B7 /* libPods-ReelTests.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,10 @@
 		D01AA9C31987E912009590A1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		D01AA9C5198C7304009590A1 /* AddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostViewController.h; sourceTree = "<group>"; };
 		D01AA9C6198C7304009590A1 /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
+		D0B928E019CFF88B00905EA8 /* FoldersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersTableViewController.h; sourceTree = "<group>"; };
+		D0B928E119CFF88B00905EA8 /* FoldersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldersTableViewController.m; sourceTree = "<group>"; };
+		D0B928E319D20CDE00905EA8 /* AddFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFolderViewController.h; sourceTree = "<group>"; };
+		D0B928E419D20CDE00905EA8 /* AddFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFolderViewController.m; sourceTree = "<group>"; };
 		D0BE981C1990A2A2000A133C /* UIColor+ColorExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorExtensions.h"; sourceTree = "<group>"; };
 		D0BE981D1990A2A2000A133C /* UIColor+ColorExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorExtensions.m"; sourceTree = "<group>"; };
 		D0BE982919A13CEF000A133C /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
@@ -123,10 +129,10 @@
 		D0BE98A419BD158C000A133C /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
 		D0BE98A719BD2CF6000A133C /* EditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
 		D0BE98A819BD2CF6000A133C /* EditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoViewController.m; sourceTree = "<group>"; };
-		D0BE98AA19BE9E76000A133C /* ProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
-		D0BE98AB19BE9E76000A133C /* ProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
-		D0BE98AE19C7878C000A133C /* ProfileFolderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileFolderTableViewCell.h; sourceTree = "<group>"; };
-		D0BE98AF19C7878C000A133C /* ProfileFolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileFolderTableViewCell.m; sourceTree = "<group>"; };
+		D0BE98AA19BE9E76000A133C /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
+		D0BE98AB19BE9E76000A133C /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		D0BE98AE19C7878C000A133C /* FolderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderTableViewCell.h; sourceTree = "<group>"; };
+		D0BE98AF19C7878C000A133C /* FolderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +281,10 @@
 				D01AA9C31987E912009590A1 /* MapViewController.m */,
 				D01AA9C5198C7304009590A1 /* AddPostViewController.h */,
 				D01AA9C6198C7304009590A1 /* AddPostViewController.m */,
+				D0B928E019CFF88B00905EA8 /* FoldersTableViewController.h */,
+				D0B928E119CFF88B00905EA8 /* FoldersTableViewController.m */,
+				D0B928E319D20CDE00905EA8 /* AddFolderViewController.h */,
+				D0B928E419D20CDE00905EA8 /* AddFolderViewController.m */,
 			);
 			name = PostControllers;
 			sourceTree = "<group>";
@@ -372,10 +382,10 @@
 		D0BE98AD19C7876C000A133C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				D0BE98AA19BE9E76000A133C /* ProfileTableViewCell.h */,
-				D0BE98AB19BE9E76000A133C /* ProfileTableViewCell.m */,
-				D0BE98AE19C7878C000A133C /* ProfileFolderTableViewCell.h */,
-				D0BE98AF19C7878C000A133C /* ProfileFolderTableViewCell.m */,
+				D0BE98AA19BE9E76000A133C /* PostTableViewCell.h */,
+				D0BE98AB19BE9E76000A133C /* PostTableViewCell.m */,
+				D0BE98AE19C7878C000A133C /* FolderTableViewCell.h */,
+				D0BE98AF19C7878C000A133C /* FolderTableViewCell.m */,
 				D00C7CED19CFCD920016690B /* SignInTableViewCell.h */,
 				D00C7CEE19CFCD920016690B /* SignInTableViewCell.m */,
 				D00C7CF019CFCDA80016690B /* SignUpTableViewCell.h */,
@@ -557,12 +567,13 @@
 				D0BE983C19A689CF000A133C /* ReelTabBarController.m in Sources */,
 				D001F4501981EAFE004611E6 /* AppDelegate.m in Sources */,
 				D001F44C1981EAFE004611E6 /* main.m in Sources */,
+				D0B928E219CFF88B00905EA8 /* FoldersTableViewController.m in Sources */,
 				D0073C3619C91E390025B0B8 /* ProfileFoldersTableViewController.m in Sources */,
 				D001F4531981EAFE004611E6 /* Reel.xcdatamodeld in Sources */,
 				D0BE98A219BD1580000A133C /* SWRevealViewController.m in Sources */,
 				D0BE98A519BD158C000A133C /* SidebarViewController.m in Sources */,
 				D0BE981E1990A2A2000A133C /* UIColor+ColorExtensions.m in Sources */,
-				D0BE98AC19BE9E76000A133C /* ProfileTableViewCell.m in Sources */,
+				D0BE98AC19BE9E76000A133C /* PostTableViewCell.m in Sources */,
 				D01AA9C7198C7304009590A1 /* AddPostViewController.m in Sources */,
 				D0BE988719B2BB09000A133C /* ProfileViewController.m in Sources */,
 				D0BE983619A52CB9000A133C /* User.m in Sources */,
@@ -573,8 +584,9 @@
 				D01AA9C41987E912009590A1 /* MapViewController.m in Sources */,
 				D0BE988A19B2BE05000A133C /* UserSessionNavigationController.m in Sources */,
 				D00C7CEF19CFCD920016690B /* SignInTableViewCell.m in Sources */,
+				D0B928E519D20CDE00905EA8 /* AddFolderViewController.m in Sources */,
 				D0BE982B19A13CEF000A133C /* FeedViewController.m in Sources */,
-				D0BE98B019C7878C000A133C /* ProfileFolderTableViewCell.m in Sources */,
+				D0BE98B019C7878C000A133C /* FolderTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,7 +894,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Reel/Reel-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://4e004e05.ngrok.com/v1/\"'";
+				GCC_PREPROCESSOR_DEFINITIONS = "ROOT_URL='@\"http://3c497c74.ngrok.com/v1/\"'";
 				INFOPLIST_FILE = "Reel/Reel-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

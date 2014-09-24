@@ -12,7 +12,7 @@
 
 + (UIColor *) tealColor
 {
-    return [UIColor colorWithRed:12.0f/255.0f green:61.0f/255.0f blue:56.0f/255.0f alpha:1.0];
+    return [UIColor colorWithRed:22.0f/255.0f green:94.0f/255.0f blue:96.0f/255.0f alpha:1.0];
 }
 
 @end

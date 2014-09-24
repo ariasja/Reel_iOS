@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jason Arias. All rights reserved.
 //
 
-#import "ProfileFolderTableViewCell.h"
+#import "FolderTableViewCell.h"
 
-@implementation ProfileFolderTableViewCell
+@implementation FolderTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -30,8 +30,6 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)buttonTouchUpInside:(id)sender {
-    
-}
+
 
 @end

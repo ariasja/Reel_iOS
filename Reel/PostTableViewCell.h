@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileTableViewCell : UITableViewCell
+@interface PostTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UITextView *captionTextView;
 
