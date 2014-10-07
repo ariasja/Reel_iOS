@@ -22,34 +22,29 @@
 {
     [super viewDidLoad];
     [SVProgressHUD show];
-    [self setFolderPosts:[[ReelRailsAFNClient sharedClient] getPostsForFolderWithId:@{@"folder_id":_folderId}
-                                                                  CompletionBlock:^(NSError *error) {
-                                                                      [[self tableView] reloadData];
-                                                                      [SVProgressHUD dismiss];
-
-                                                                  }]];
-    [[self folderLabelTextView] setText:_folderTitle];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"%@", _folderId);
-    NSLog(@"%@", _folderPosts);
+    [[self folderLabelTextView] setText:[self folderTitle]];
+    [self setFolderPosts:[[ReelRailsAFNClient sharedClient] getPostsForFolderWithId:@{@"folder_id": [self folderId]}
+                                                                    CompletionBlock:^(NSError *error) {
+                                                                        [[self tableView] reloadData];
+                                                                        [SVProgressHUD dismiss];
+                                                                        
+                                                                    }]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%@", _folderPosts);
+    NSLog(@"%@", [self folderPosts]);
     NSString* cellIdentifier = @"postTableCell";
     long row = [indexPath row];
     PostTableViewCell *cell = [tableView
-                                  dequeueReusableCellWithIdentifier:cellIdentifier
-                                  forIndexPath:indexPath];
-    NSString *caption = _folderPosts[row][@"caption"];
+                               dequeueReusableCellWithIdentifier:cellIdentifier
+                               forIndexPath:indexPath];
+    NSString *caption = [self folderPosts][row][@"caption"];
     [cell.captionTextView setText:caption];
     return cell;
 }
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -59,7 +54,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows = 0;
-    numberOfRows = [_folderPosts count];
+    numberOfRows = [[self folderPosts] count];
     NSLog(@"%li", (long)numberOfRows);
     return numberOfRows;
 }

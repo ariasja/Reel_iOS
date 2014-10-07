@@ -8,5 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UITableViewController
+#import "ProfileTableViewController.h"
+
+@class ProfileTableViewController;
+
+@interface CurrentUserProfileTableViewController : ProfileTableViewController
 @end

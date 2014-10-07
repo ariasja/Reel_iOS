@@ -107,6 +107,9 @@
         case 6:
             return 118.0f;
             break;
+        case 7:
+            return 200.0f;
+            break;
         default:
             return 0.0f;
             break;
@@ -222,6 +225,7 @@
 {
     [self performSegueWithIdentifier:@"SignInSignUpSegue" sender:self];
 }
+
 
 -(IBAction)editingEnded:(id)sender{
     [sender resignFirstResponder];

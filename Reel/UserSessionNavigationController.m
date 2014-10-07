@@ -7,7 +7,7 @@
 //
 
 
-#import "ProfileViewController.h"
+#import "CurrentUserProfileTableViewController.h"
 #import "UserSignInSignUpViewController.h"
 #import "UserSession.h"
 #import "UserSessionNavigationController.h"

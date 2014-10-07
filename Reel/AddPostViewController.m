@@ -52,7 +52,7 @@
 {
     [[_addToReelButton layer] setBorderWidth:1.2f];
     [[_addToReelButton layer] setBorderColor:[UIColor tealColor].CGColor];
-    [[_addToReelButton layer] setCornerRadius:10.0f];
+    [[_addToReelButton layer] setCornerRadius:14.0f];
 }
 
 -(void)formatTextField:(UITextField*)textField
@@ -95,8 +95,10 @@
                                                                       @"atTag":_atTagTextField.text,
                                                                       @"folder_id":folderId ? folderId : @""}
                                                     CompletionBlock:^(NSError *error) {
+                                                        
                                                         [SVProgressHUD dismiss];
                                                         [self clearTextFields];
+
                                                     }];
     }
 
@@ -106,7 +108,7 @@
     [_captionTextField setText:@""];
     [_hashTagTextField setText:@""];
     [_atTagTextField setText:@""];
-    [self reformatAddToReelButtonForFolderWithTitle:@" add to a reel                                        >"
+    [self reformatAddToReelButtonForFolderWithTitle:@" add to a reel >"
                                            folderId:nil];
     [_locationSwitch setOn:NO animated:YES];
 }
@@ -123,6 +125,8 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    //Only need location once
+    [locationManager stopUpdatingLocation];
     CLLocation *newLocation = locations[[locations count] -1];
     NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
@@ -148,7 +152,6 @@
         [errorAlert show];
         //[locationManager stopUpdatingLocation];
     }
-    [locationManager stopUpdatingLocation];
 }
 
 

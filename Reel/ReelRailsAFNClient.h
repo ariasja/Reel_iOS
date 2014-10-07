@@ -7,7 +7,7 @@
 //
 
 #import "AFHTTPSessionManager.h"
-#import "ProfileViewController.h"
+#import "CurrentUserProfileTableViewController.h"
 
 typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
 
@@ -25,6 +25,12 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 - (void) updateCurrentUserWithParameters:(NSDictionary*)parameters
                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (NSMutableArray*) getUsersWithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (NSMutableArray*) getFollowersForUserWithParameters:(NSDictionary*)parameters
+                                      CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (NSMutableArray*) getFollowedUsersForUserWithParameters:(NSDictionary*)parameters
+                                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
 
 //Session
 - (void) createSessionWithParameters: (NSDictionary*) parameters
@@ -44,6 +50,19 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
                   CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 -(NSMutableArray*)getFoldersForUserWithId:(NSDictionary*)parameters
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+//Relationship
+-(void)createRelationshipWhereUserWithId:(NSNumber*)followerId
+                       FollowsUserWithId:(NSNumber*)followedId
+                     WithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+-(void)destroyRelationshipWhereUserWithId:(NSNumber*)followerId
+                      UnfollowsUserWithId:(NSNumber*)followedId
+                      WithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+
+-(BOOL)isUserWithId:(NSNumber*)followerId
+FollowingUserWithId:(NSNumber*)followedId
+    CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 
 //Shared Client
 + (instancetype) sharedClient;

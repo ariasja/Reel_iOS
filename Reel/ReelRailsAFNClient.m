@@ -1,4 +1,4 @@
- //
+  //
 //  ReelRailsAFNClient.m
 //  Reel
 //
@@ -74,6 +74,68 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
             NSLog(@"%@", [error localizedDescription]);
             block(error);
         }];
+}
+
+- (NSMutableArray*) getUsersWithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    NSMutableArray* returnArray = [[NSMutableArray alloc] initWithArray:@[]];
+    [self GET:@"users" parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"GET Users Successful");
+          NSLog(@"%@", responseObject);
+          [returnArray setArray:responseObject];
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"GET Users Unsuccessful");
+          NSLog(@"%@", [error localizedDescription]);
+          block(error);
+      }];
+    return returnArray;
+}
+
+- (NSMutableArray*) getFollowersForUserWithParameters:(NSDictionary*)parameters
+                                      CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    NSMutableArray* returnArray = [[NSMutableArray alloc] initWithArray:@[]];
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
+    [pathString appendString:[parameters[@"userId"] stringValue]];
+    [pathString appendString:@"/followers"];
+
+    [self GET:pathString parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"Get Followers Successful");
+          NSLog(@"%@", responseObject);
+          [returnArray setArray:responseObject];
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"Get Followers Unsuccessful");
+          NSLog(@"%@", [error localizedDescription]);
+          block(error);
+      }];
+    
+    return returnArray;
+}
+- (NSMutableArray*) getFollowedUsersForUserWithParameters:(NSDictionary*)parameters
+                                          CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    NSMutableArray* returnArray = [[NSMutableArray alloc] initWithArray:@[]];
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
+    [pathString appendString:[[[UserSession sharedSession] userId] stringValue]];
+    [pathString appendString:@"/following"];
+    
+    [self GET:pathString parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"Get Followed Users Successful");
+          NSLog(@"%@", responseObject);
+          [returnArray setArray:responseObject];
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"Get Followed Users Unsuccessful");
+          NSLog(@"%@", [error localizedDescription]);
+          block(error);
+      }];
+    
+    return returnArray;
 }
 
 ////////////////////////////////////
@@ -244,7 +306,66 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
     return returnArray;
 }
 
+////////////////////////////////////
+//        RELATIONSHIP            //
+////////////////////////////////////
+-(void)createRelationshipWhereUserWithId:(NSNumber*)followerId
+                       FollowsUserWithId:(NSNumber*)followedId
+                     WithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    [self POST:@"relationships/" parameters:@{@"follower_id": followerId,
+                                             @"followed_id": followedId}
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"Post Relationships Successful");
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"Post Relationships Unsuccessful");
+          NSLog(@"%@", [error localizedDescription]);
+          block(error);
+      }];
+}
 
+-(void)destroyRelationshipWhereUserWithId:(NSNumber*)followerId
+                      UnfollowsUserWithId:(NSNumber*)followedId
+                      WithCompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    [self DELETE:@"relationships/" parameters:@{@"follower_id": followerId,
+                                              @"followed_id": followedId}
+       success:^(NSURLSessionDataTask *task, id responseObject) {
+           NSLog(@"Destroy Relationships Successful");
+           block(nil);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           NSLog(@"Destroy Relationships Unsuccessful");
+           NSLog(@"%@", [error localizedDescription]);
+           block(error);
+       }];
+}
+
+-(BOOL)isUserWithId:(NSNumber*)followerId
+FollowingUserWithId:(NSNumber*)followedId
+    CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    BOOL isFollowing = NO;
+
+    NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] initWithDictionary:@{}];
+    [self GET:@"relationships/is_valid_relationship" parameters:@{
+                                      @"follower_id": followedId,
+                                      @"followed_id": followedId
+                                      }
+       success:^(NSURLSessionDataTask *task, id responseObject) {
+           NSLog(@"Get Relationships Successful");
+           NSLog(@"%@", responseObject);
+           [tempDictionary setDictionary:responseObject];
+           block(nil);
+       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+           NSLog(@"Get Relationships Unsuccessful");
+           NSLog(@"%@", [error localizedDescription]);
+           block(error);
+       }];
+    isFollowing = [tempDictionary[@"id"] isEqualToString:@""];
+    NSLog(@"%d", isFollowing);
+    return isFollowing;
+}
 
 ////////////////////////////////////
 //        SHARED CLIENT           //
