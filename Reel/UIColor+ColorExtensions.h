@@ -11,5 +11,8 @@
 @interface UIColor (ColorExtensions)
 
 + (UIColor *) tealColor;
++ (UIColor *)appBlueColor;
++ (UIColor *)appTanColor;
+
 
 @end

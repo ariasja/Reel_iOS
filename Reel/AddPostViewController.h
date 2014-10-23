@@ -11,6 +11,10 @@
 
 
 @interface AddPostViewController : UITableViewController <CLLocationManagerDelegate>
+
+@property(weak, nonatomic)NSURL *videoURL;
+@property(strong, nonatomic) id thumbnailImage;
+
 -(void)reformatAddToReelButtonForFolderWithTitle:(NSString*)title
                                         folderId:(NSNumber*)folderId;
 @end

@@ -26,14 +26,12 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
     [SVProgressHUD show];
 
     //All Users
     _usersArray = [[ReelRailsAFNClient sharedClient] getUsersWithCompletionBlock:^(NSError *error) {/*code*/}];
     //Users who current user is following
     _searchResults = [[NSMutableArray alloc] init];
-    [SVProgressHUD dismiss];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -45,7 +43,6 @@
                                                                                    CompletionBlock:^(NSError *error) {
                                                                                        if(!error){
                                                                                            [[self tableView] reloadData];
-                                                                                           [SVProgressHUD dismiss];
                                                                                        }
                                                                                    }];
     //Users following current user

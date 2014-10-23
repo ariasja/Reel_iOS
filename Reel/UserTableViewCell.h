@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *nameTextView;
 @property (weak, nonatomic) IBOutlet UITextView *usernameTextView;
 @property (strong, nonatomic) NSNumber* userId;
+@property (weak, nonatomic) IBOutlet UIImageView *userThumbnailImageView;
 
 @end

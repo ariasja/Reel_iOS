@@ -31,7 +31,6 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
             _sharedClient = [[ReelRailsClient alloc] init];
         }
     );
-    
     return _sharedClient;
 }
 

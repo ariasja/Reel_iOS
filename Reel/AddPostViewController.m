@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Jason Arias. All rights reserved.
 //
 
-#import "AddPostViewController.h"
-#import "UIColor+ColorExtensions.h"
 #import "AddPostConfirmationViewController.h"
+#import "AddPostViewController.h"
+#import "MZFormSheetController.h"
+#import "UIColor+ColorExtensions.h"
 #import "ReelRailsAFNClient.h"
 #import "UserSession.h"
 
@@ -21,13 +22,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *addPostButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
-@property (weak, nonatomic) IBOutlet UITextField *hashTagTextField;
-@property (weak, nonatomic) IBOutlet UITextField *atTagTextField;
 
 @property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *addToReelButton;
 @property (strong, nonatomic) NSNumber *folderId;
+@property (strong, nonatomic) CLLocation *currentLocation;
 
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+
+@property (weak, nonatomic) IBOutlet UITableView *atTagTableView;
+@property (weak, nonatomic) IBOutlet UITableView *hashTagTableView;
+@property (weak, nonatomic) IBOutlet UIButton *atTagButton;
+@property (weak, nonatomic) IBOutlet UIButton *hashTagButton;
 
 @end
 
@@ -41,17 +47,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [SVProgressHUD show];
+    
+    [_thumbnailImageView setImage:_thumbnailImage];
+    _atTagButton.layer.cornerRadius = _atTagButton.layer.bounds.size.height/2;
+    _hashTagButton.layer.cornerRadius = _hashTagButton.layer.bounds.size.height/2;
+    
     locationManager = [[CLLocationManager alloc] init];
+    [locationManager requestWhenInUseAuthorization];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
     [self formatAddToReelButton];
     [self formatTextField:_captionTextField];
     [self formatTextField:_atTagTextField];
     [self formatTextField:_hashTagTextField];
+    
+    [SVProgressHUD dismiss];
 }
 
 -(void)formatAddToReelButton
 {
-    [[_addToReelButton layer] setBorderWidth:1.2f];
-    [[_addToReelButton layer] setBorderColor:[UIColor tealColor].CGColor];
     [[_addToReelButton layer] setCornerRadius:14.0f];
 }
 
@@ -59,8 +76,6 @@
 {
     [textField.layer setCornerRadius:10.0f];
     [textField.layer setMasksToBounds:YES];
-    [textField.layer setBorderColor:[[UIColor tealColor]CGColor]];
-    [textField.layer setBorderWidth:1.2f];
 }
 
 -(void)reformatAddToReelButtonForFolderWithTitle:(NSString*)title
@@ -83,11 +98,20 @@
     [SVProgressHUD show];
     
     if([_locationSwitch isOn]){
-        [locationManager requestWhenInUseAuthorization];
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        [locationManager startUpdatingLocation];
-        
+        if (_currentLocation != nil) {
+            [[ReelRailsAFNClient sharedClient] createPostWithParameters:@{@"user_id":[[UserSession sharedSession] sessionActive]
+                                                                          ? [[[UserSession sharedSession] userId] stringValue] : @"",
+                                                                          @"caption":_captionTextField.text,
+                                                                          @"hashTag":_hashTagTextField.text,
+                                                                          @"atTag":_atTagTextField.text,
+                                                                          @"geo_lat":[NSString stringWithFormat:@"%.8f", _currentLocation.coordinate.longitude],
+                                                                          @"geo_long":[NSString stringWithFormat:@"%.8f", _currentLocation.coordinate.latitude],
+                                                                          @"folder_id":folderId ? folderId : @""}
+                                                        CompletionBlock:^(NSError *error) {
+                                                            [SVProgressHUD dismiss];
+                                                            [self clearTextFields];
+                                                        }];
+        }
     }else{
         [[ReelRailsAFNClient sharedClient] createPostWithParameters:@{@"user_id":[[[UserSession sharedSession] userId] stringValue],
                                                                       @"caption":_captionTextField.text,
@@ -126,32 +150,19 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     //Only need location once
+    _currentLocation = locations[[locations count] -1];
     [locationManager stopUpdatingLocation];
-    CLLocation *newLocation = locations[[locations count] -1];
-    NSLog(@"didUpdateToLocation: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
-    NSString *longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-    NSString *latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
-    
-    if (currentLocation != nil) {
-    [[ReelRailsAFNClient sharedClient] createPostWithParameters:@{@"user_id":[[UserSession sharedSession] sessionActive]
-                                                                  ? [[[UserSession sharedSession] userId] stringValue] : @"",
-                                                                  @"caption":_captionTextField.text,
-                                                                  @"hashTag":_hashTagTextField.text,
-                                                                    @"atTag":_atTagTextField.text,
-                                                                  @"geo_lat":longitude,
-                                                                 @"geo_long":latitude,
-                                                                  @"folder_id":folderId ? folderId : @""}
-                                                CompletionBlock:^(NSError *error) {
-                                                    [SVProgressHUD dismiss];
-                                                    [self clearTextFields];
-                                                }];
-    }else {
-        UIAlertView *errorAlert = [[UIAlertView alloc]
-                                   initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [errorAlert show];
-        //[locationManager stopUpdatingLocation];
-    }
+    NSLog(@"didUpdateToLocation: %@", _currentLocation);
+}
+- (IBAction)atTagButtonTouchUpInside:(id)sender {
+    //[self performSegueWithIdentifier:@"atTagSegue" sender:self];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"nav"];
+    [self mz_presentFormSheetController:vc animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        //do sth
+    }];
+}
+- (IBAction)hashTagButtonTouchUpInside:(id)sender {
+    [self performSegueWithIdentifier:@"hashTagSegue" sender:self];
 }
 
 

@@ -260,6 +260,29 @@ static NSString *const secretKey = @"C0NsdAmohcQBAw3272uSsn3Y2T5JOrVZQhUhguL2sk4
 
 }
 
+- (NSMutableArray*) getFeedItemsForUserWithId:(NSDictionary*)parameters
+                              CompletionBlock:(RailsAFNClientErrorCompletionBlock)block
+{
+    NSMutableArray *returnArray = [[NSMutableArray alloc] initWithArray:@[]];
+    
+    NSMutableString *pathString = [[NSMutableString alloc] initWithString:@"users/"];
+    [pathString appendString:[parameters[@"user_id"] stringValue]];
+    [pathString appendString:@"/feed_posts"];
+    
+    [self GET:pathString parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"GET Feed Posts Successful");
+          NSLog(@"%@", [responseObject class]);
+          [returnArray setArray:responseObject];
+          block(nil);
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"GET Feed Posts Unsuccessful");
+          NSLog(@"%@", [error localizedDescription]);
+          block(error);
+      }];
+    return returnArray;
+}
+
 ////////////////////////////////////
 //            FOLDER              //
 ////////////////////////////////////

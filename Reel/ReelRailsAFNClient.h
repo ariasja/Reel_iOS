@@ -44,6 +44,8 @@ typedef void(^RailsAFNClientErrorCompletionBlock)(NSError *error);
                CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 - (NSMutableArray*) getPostsForFolderWithId:(NSDictionary*)parameters
                             CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
+- (NSMutableArray*) getFeedItemsForUserWithId:(NSDictionary*)parameters
+                              CompletionBlock:(RailsAFNClientErrorCompletionBlock)block;
 
 //Folder
 -(void)createFolderWithParameters:(NSDictionary*)parameters

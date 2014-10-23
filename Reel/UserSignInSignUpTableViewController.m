@@ -19,8 +19,6 @@
 
 
 @interface UserSignInSignUpTableViewController () <UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextView *reelTextView;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *signInSignUpSegmentedControl;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *signInTableViewCell;
@@ -33,6 +31,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *signUpEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *signUpPasswordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *signUpPasswordConfirmationTextField;
+@property (weak, nonatomic) IBOutlet UILabel *rLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *eLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *lLabel;
 @property (weak, nonatomic) IBOutlet UIButton *signInSignUpButton;
 @end
 
@@ -45,7 +47,20 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [_reelTextView.layer setCornerRadius:20.0f];
+    
+    CGFloat cornerRadius = 27.5f;
+    BOOL masksToBounds = YES;
+    _rLabel.layer.cornerRadius = cornerRadius;
+    _eLabel1.layer.cornerRadius = cornerRadius;
+    _eLabel2.layer.cornerRadius = cornerRadius;
+    _lLabel.layer.cornerRadius = cornerRadius;
+    _rLabel.layer.masksToBounds = masksToBounds;
+    _eLabel1.layer.masksToBounds = masksToBounds;
+    _eLabel2.layer.masksToBounds = masksToBounds;
+    _lLabel.layer.masksToBounds = masksToBounds;
+    
+    _signInSignUpButton.layer.cornerRadius = 23.0f;
+
     //[_reelTextView setTransform:CGAffineTransformMakeRotation(90* M_PI/180)];
     //[self.tableView setBackgroundView:nil];
     //[self.tableView setBackgroundView:[[UIView alloc] init]];
@@ -61,9 +76,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%@", indexPath);
+    if([self signInSelected]){
+        [_signInSignUpButton setTitle:@"in" forState:UIControlStateNormal];
+    } else { //signUpSelected
+        [_signInSignUpButton setTitle:@"up" forState:UIControlStateNormal];
+    }
     switch (indexPath.row) {
         case 0:
-            return 165.0f;
+            return 134.0f;
             break;
         case 1:
             return 100.0f;
@@ -105,7 +125,7 @@
             }
             break;
         case 6:
-            return 118.0f;
+            return 59.0f;
             break;
         case 7:
             return 200.0f;
